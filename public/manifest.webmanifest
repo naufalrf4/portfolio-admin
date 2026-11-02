@@ -1,0 +1,59 @@
+{
+  "id": "/",
+  "name": "NaufalRF Admin",
+  "short_name": "Admin",
+  "description": "Portfolio CMS admin dashboard, content authority, and notification inbox.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0d10",
+  "theme_color": "#0b0d10",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Notifications",
+      "short_name": "Inbox",
+      "url": "/notifications?source=pwa",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Submissions",
+      "short_name": "Contacts",
+      "url": "/contacts?tab=submissions&source=pwa",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Logs",
+      "short_name": "Logs",
+      "url": "/logs?source=pwa",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+ALTER TABLE "AboutMe" ADD COLUMN "shortBio" text;
