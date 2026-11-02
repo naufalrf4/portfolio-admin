@@ -5,6 +5,13 @@ COPY package.json bun.lock ./
 COPY packages ./packages
 RUN --mount=type=cache,target=/root/.bun/install/cache bun install --frozen-lockfile
 
+FROM deps AS dev
+WORKDIR /app
+COPY . .
+ENV NODE_ENV=development PORT=3001
+EXPOSE 3001
+CMD ["bun", "run", "dev"]
+
 FROM deps AS migrator
 COPY . .
 CMD ["bun", "run", "db:migrate"]
