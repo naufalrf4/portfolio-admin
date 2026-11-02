@@ -7,6 +7,51 @@ interface SignConfig {
   nested?: Record<string, string[]>;
 }
 
+const PUBLIC_ASSET_BASE_URL = 'https://assets.naufalrf.net';
+const PUBLIC_IMAGE_FOLDERS = new Set(['about', 'projects', 'achievements']);
+
+export function toPublicImageUrl(value: string): string {
+  const storageKey = getStorageKey(value);
+  if (!storageKey) return value;
+
+  const [folder, ...segments] = storageKey.split('/');
+  if (!folder || !PUBLIC_IMAGE_FOLDERS.has(folder) || segments.length === 0) return value;
+  if (segments.some((segment) => !segment || segment === '.' || segment === '..')) return value;
+
+  return `${PUBLIC_ASSET_BASE_URL}/${storageKey.split('/').map(encodeURIComponent).join('/')}`;
+}
+
+export function mapPublicImageUrls<T extends SignableRecord>(
+  record: T,
+  config: SignConfig
+): T {
+  if (!record) return record;
+
+  const mappedRecord = { ...record } as Record<string, unknown>;
+  for (const field of config.fields ?? []) {
+    if (typeof mappedRecord[field] === 'string') {
+      mappedRecord[field] = toPublicImageUrl(mappedRecord[field] as string);
+    }
+  }
+
+  for (const [arrayField, fields] of Object.entries(config.nested ?? {})) {
+    const items = mappedRecord[arrayField];
+    if (!Array.isArray(items)) continue;
+    mappedRecord[arrayField] = items.map((item) => {
+      if (!item || typeof item !== 'object') return item;
+      const mappedItem = { ...(item as Record<string, unknown>) };
+      for (const field of fields) {
+        if (typeof mappedItem[field] === 'string') {
+          mappedItem[field] = toPublicImageUrl(mappedItem[field] as string);
+        }
+      }
+      return mappedItem;
+    });
+  }
+
+  return mappedRecord as T;
+}
+
 function getStorageKey(value: unknown): string | null {
   if (typeof value !== 'string') {
     return null;

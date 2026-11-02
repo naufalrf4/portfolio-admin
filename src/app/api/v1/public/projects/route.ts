@@ -3,7 +3,7 @@ import { db } from '@/lib/db';
 import { projects, projectImages } from '@/lib/db/schema';
 import { eq, and, desc, count, asc } from 'drizzle-orm';
 import { successResponse, serverErrorResponse } from '@/lib/api/responses';
-import { signAssetUrlsMany } from '@/lib/utils/sign-urls';
+import { mapPublicImageUrls } from '@/lib/utils/sign-urls';
 
 export async function GET(req: NextRequest) {
   try {
@@ -63,13 +63,13 @@ export async function GET(req: NextRequest) {
       })
     );
 
-    const signedProjects = await signAssetUrlsMany(projectsWithImages, {
+    const publicProjects = projectsWithImages.map((project) => mapPublicImageUrls(project, {
       fields: ['imageUrl'],
       nested: { images: ['url'] },
-    });
+    }));
 
     return successResponse({
-      projects: signedProjects,
+      projects: publicProjects,
       meta: {
         total,
         featured: featuredCount,

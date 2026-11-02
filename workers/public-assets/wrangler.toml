@@ -1,0 +1,9 @@
+name = "portfolio-public-assets"
+main = "src/index.ts"
+compatibility_date = "2026-10-30"
+workers_dev = false
+routes = [{ pattern = "assets.naufalrf.net", custom_domain = true }]
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "nrflabs-portfolio-media-prod"

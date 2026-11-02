@@ -32,6 +32,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'assets.naufalrf.net',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'storage.googleapis.com',
         pathname: '/**',
       },

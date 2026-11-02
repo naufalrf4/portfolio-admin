@@ -3,7 +3,7 @@ import { db } from '@/lib/db';
 import { achievements } from '@/lib/db/schema';
 import { eq, count, asc } from 'drizzle-orm';
 import { successResponse, serverErrorResponse } from '@/lib/api/responses';
-import { signStringArray } from '@/lib/utils/sign-urls';
+import { toPublicImageUrl } from '@/lib/utils/sign-urls';
 import { normalizeStoredAssetValue } from '@/lib/services/storage';
 import { logger } from '@/lib/utils/logger';
 
@@ -44,12 +44,10 @@ export async function GET(req: NextRequest) {
     const signedAchievements = await Promise.all(
       achievementsList.map(async (achievement) => ({
         ...achievement,
-        photos: await signStringArray(
-          (achievement.photos || []).flatMap((photo) => {
-            const normalized = normalizeStoredAssetValue(photo);
-            return normalized ? [normalized] : [];
-          })
-        ),
+        photos: (achievement.photos || []).flatMap((photo) => {
+          const normalized = normalizeStoredAssetValue(photo);
+          return normalized ? [toPublicImageUrl(normalized)] : [];
+        }),
       }))
     );
 

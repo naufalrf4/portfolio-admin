@@ -1,5 +1,5 @@
 import { successResponse, notFoundResponse, serverErrorResponse } from '@/lib/api/responses';
-import { signAssetUrls } from '@/lib/utils/sign-urls';
+import { mapPublicImageUrls, signAssetUrls } from '@/lib/utils/sign-urls';
 import { normalizeAboutSkills } from '@/lib/about-skills';
 import { getAboutMeRecord } from '@/lib/api/handlers/about-read.service';
 import { profileLinksService } from '@/lib/api/handlers/profile-links.service';
@@ -267,12 +267,13 @@ export async function GET() {
       updatedAt: aboutMeData.updatedAt,
     };
 
-    const signedData = await signAssetUrls(publicData, {
-      fields: ['avatarUrl', 'resumeUrl'],
+    const publicImages = mapPublicImageUrls(publicData, {
+      fields: ['avatarUrl'],
       nested: {
         experience: ['logoUrl'],
       },
     });
+    const signedData = await signAssetUrls(publicImages, { fields: ['resumeUrl'] });
 
     return successResponse(signedData);
   } catch (error) {

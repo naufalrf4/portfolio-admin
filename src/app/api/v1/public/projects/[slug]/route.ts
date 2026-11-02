@@ -3,7 +3,7 @@ import { db } from '@/lib/db';
 import { projects } from '@/lib/db/schema';
 import { eq } from 'drizzle-orm';
 import { successResponse, notFoundResponse, serverErrorResponse } from '@/lib/api/responses';
-import { signAssetUrls } from '@/lib/utils/sign-urls';
+import { mapPublicImageUrls } from '@/lib/utils/sign-urls';
 
 type RouteContext = {
   params: Promise<{ slug: string }>;
@@ -45,12 +45,12 @@ export async function GET(req: NextRequest, context: RouteContext) {
       images: project.projectImages,
     };
 
-    const signedProject = await signAssetUrls(projectData, {
+    const publicProject = mapPublicImageUrls(projectData, {
       fields: ['imageUrl'],
       nested: { images: ['url'] },
     });
 
-    return successResponse(signedProject);
+    return successResponse(publicProject);
   } catch {
     return serverErrorResponse();
   }

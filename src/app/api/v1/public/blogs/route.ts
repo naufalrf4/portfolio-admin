@@ -3,7 +3,7 @@ import { successResponse, serverErrorResponse } from '@/lib/api/responses';
 import { db } from '@/lib/db';
 import { blogLink } from '@/lib/db/schema';
 import { eq, desc, count } from 'drizzle-orm';
-import { signAssetUrlsMany } from '@/lib/utils/sign-urls';
+import { mapPublicImageUrls } from '@/lib/utils/sign-urls';
 
 const DEFAULT_LIMIT = 6;
 const MAX_LIMIT = 50;
@@ -35,11 +35,11 @@ export async function GET(req: NextRequest) {
       db.select({ total: count() }).from(blogLink).where(eq(blogLink.visible, true)),
     ]);
 
-    const signedBlogs = await signAssetUrlsMany(blogs, {
+    const publicBlogs = blogs.map((blog) => mapPublicImageUrls(blog, {
       fields: ['imageUrl'],
-    });
+    }));
 
-    return successResponse({ blogs: signedBlogs, meta: { total } });
+    return successResponse({ blogs: publicBlogs, meta: { total } });
   } catch {
     return serverErrorResponse();
   }
