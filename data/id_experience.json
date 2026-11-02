@@ -1,0 +1,196 @@
+{
+  "data": [
+    {
+      "text": "Gua sekarang ngejabat CTO di Aquasync.id, based in Sukabumi, Jawa Barat. Mulai join dari 2024, part-time, dan work-nya hybrid. So, kadang di rumah, kadang ngantor, fleksibel gitu!",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "posisi_cto"
+      }
+    },
+    {
+      "text": "Sebagai CTO di Aquasync.id, gua handle architecture dan development platform utama. Stack-nya pake Next.js sama Laravel, pastiin sistemnya scalable, secure, dan bisa diintegrasiin AI buat future growth!",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "tanggung_jawab_cto"
+      }
+    },
+    {
+      "text": "One of my biggest achievements as CTO? Berhasil dapetin funding dari Startup School program by CDA IPB. Duitnya dipake buat build platform yang lebih engaging dan user-friendly!",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "prestasi_cto"
+      }
+    },
+    {
+      "text": "Selain coding, gua juga regularly nge-review code dan nge-optimize sistem buat boost performance. Pokoknya gua pastiin everything runs smoothly biar user experience-nya maksimal.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "kegiatan_cto"
+      }
+    },
+    {
+      "text": "Dulu gua juga pernah jadi Staff & Mentor di Himavo Micro IT Community, Bogor, Jawa Barat di 2024. Part-time, hybrid, tetep bisa balance antara kerja dan sharing knowledge.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "posisi_mentor_himavo"
+      }
+    },
+    {
+      "text": "Sebagai mentor di Himavo, gua develop kurikulum web dev yang lebih fun dan gampang dipahami buat newbie sampai advanced learners. The goal is to make tech more accessible!",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "tanggung_jawab_mentor_himavo"
+      }
+    },
+    {
+      "text": "Selain ngajarin coding, gua juga sering adain pelatihan public speaking buat anak-anak divisi webmaster. Karena skill komunikasi tuh as important as tech skills!",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "kegiatan_mentor_himavo"
+      }
+    },
+    {
+      "text": "Yang bikin bangga? Peserta training di Himavo bisa lebih paham web dev dengan pendekatan yang gua ajarin. No more boring theory, langsung hands-on dan praktik!",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "prestasi_mentor_himavo"
+      }
+    },
+    {
+      "text": "Gua juga pernah ikutan Project-Based Internship sebagai Fullstack Developer di PT Bank BTPN Tbk, Jakarta. Kerjanya remote, mulai dari 2023.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "posisi_internship_btpn"
+      }
+    },
+    {
+      "text": "Di internship BTPN, gua develop dan nge-maintain sistem pembayaran digital biar sesuai dengan kebutuhan perbankan syariah. Challenging but super rewarding experience!",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "tanggung_jawab_internship_btpn"
+      }
+    },
+    {
+      "text": "Tech stack yang gua pake selama internship? JavaScript, MySQL, Git, dan Golang. Pokoknya ngeboost kapabilitas sistem perbankan digital di BTPN Syariah.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "kegiatan_internship_btpn"
+      }
+    },
+    {
+      "text": "Selama internship di BTPN, gua sukses deliver project dengan tingkat kepuasan tinggi. Pake Vue.js, MySQL, Git, Golang, dan PostgreSQL buat optimize banking system.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "prestasi_internship_btpn"
+      }
+    },
+    {
+      "text": "Saya saat ini menjabat sebagai Chief Technology Officer (CTO) di Aquasync.id, sebuah perusahaan berbasis di Sukabumi, Jawa Barat. Saya mulai bergabung pada tahun 2024 dengan status part-time dan sistem kerja hybrid.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "posisi_cto"
+      }
+    },
+    {
+      "text": "Sebagai CTO di Aquasync.id, saya bertanggung jawab dalam merancang dan mengembangkan arsitektur platform utama menggunakan teknologi Next.js dan Laravel. Saya memastikan sistem yang dibangun memiliki skalabilitas tinggi, keamanan yang optimal, serta dapat diintegrasikan dengan kecerdasan buatan (AI) untuk pengembangan fitur di masa depan.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "tanggung_jawab_cto"
+      }
+    },
+    {
+      "text": "Salah satu pencapaian saya sebagai CTO adalah berhasil mengamankan pendanaan dari program Startup School yang diselenggarakan oleh CDA IPB. Pendanaan ini memungkinkan pengembangan sistem berbasis web yang lebih interaktif serta meningkatkan keterlibatan pengguna dalam platform Aquasync.id.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "prestasi_cto"
+      }
+    },
+    {
+      "text": "Saya secara rutin melakukan peninjauan kode (code review) serta optimasi performa sistem untuk memastikan kualitas perangkat lunak yang tinggi dan pengalaman pengguna yang optimal.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "kegiatan_cto"
+      }
+    },
+    {
+      "text": "Saya juga memiliki pengalaman sebagai Staff & Mentor di Himavo Micro IT Community, Bogor, Jawa Barat, pada tahun 2024. Saya menjalankan peran ini secara part-time dengan sistem kerja hybrid.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "posisi_mentor_himavo"
+      }
+    },
+    {
+      "text": "Sebagai mentor di Himavo Micro IT Community, saya menyusun dan mengembangkan kurikulum pelatihan web development agar lebih sistematis dan mudah dipahami bagi peserta dengan berbagai tingkat keahlian.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "tanggung_jawab_mentor_himavo"
+      }
+    },
+    {
+      "text": "Selain memberikan pelatihan teknis, saya juga mengadakan sesi peningkatan keterampilan komunikasi dan public speaking bagi anggota divisi webmaster, dengan tujuan meningkatkan kemampuan presentasi dan penyampaian ide secara efektif.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "kegiatan_mentor_himavo"
+      }
+    },
+    {
+      "text": "Hasil dari program pelatihan yang saya kelola adalah peningkatan pemahaman peserta dalam web development secara praktis, yang memungkinkan mereka untuk mengembangkan proyek mereka sendiri secara lebih mandiri.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "prestasi_mentor_himavo"
+      }
+    },
+    {
+      "text": "Saya pernah mengikuti program magang berbasis proyek (Project-Based Internship) sebagai Fullstack Developer di PT Bank BTPN Tbk, Jakarta, pada tahun 2023. Program ini dijalankan secara remote.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "posisi_internship_btpn"
+      }
+    },
+    {
+      "text": "Dalam peran saya sebagai Fullstack Developer di PT Bank BTPN Tbk, saya bertanggung jawab untuk mengembangkan dan memastikan sistem pembayaran digital yang sesuai dengan kebutuhan perbankan syariah, dengan fokus utama pada keamanan dan efisiensi transaksi.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "tanggung_jawab_internship_btpn"
+      }
+    },
+    {
+      "text": "Selama magang, saya mengimplementasikan berbagai fitur tambahan menggunakan teknologi seperti JavaScript, MySQL, Git, dan Golang untuk meningkatkan performa serta kapabilitas sistem perbankan digital di BTPN Syariah.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "kegiatan_internship_btpn"
+      }
+    },
+    {
+      "text": "Saya berhasil menyelesaikan proyek dengan tingkat kepuasan yang tinggi selama internship di PT Bank BTPN Tbk. Teknologi yang saya gunakan dalam proyek ini meliputi Vue.js, MySQL, Git, Golang, dan PostgreSQL, yang berkontribusi dalam optimalisasi sistem perbankan yang lebih modern dan efisien.",
+      "metadata": {
+        "sumber": "data/id_experience.json",
+        "kategori": "pengalaman_kerja",
+        "atribut": "prestasi_internship_btpn"
+      }
+    }
+  ]
+}

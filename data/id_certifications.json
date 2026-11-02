@@ -1,0 +1,312 @@
+{
+  "data": [
+    {
+      "text": "Gua punya sertifikat Algorithm & Data Structures with Python dari Skilvul, keluar Maret 2024 dan masih berlaku sampe Maret 2027. Mantap banget buat ngasah skill problem-solving!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "algorithms_python",
+        "dikeluarkan_oleh": "Skilvul",
+        "tanggal_terbit": "Mar 2024",
+        "tanggal_kedaluwarsa": "Mar 2027",
+        "status": "Aktif",
+        "bidang": "Pemrograman & Struktur Data"
+      }
+    },
+    {
+      "text": "Sertifikat ini bantu gua ngerti algoritma dan struktur data pake Python. Jadi, skill problem-solving gua makin tajem, bro!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "algorithms_python_deskripsi",
+        "keahlian": ["Python", "Algoritma", "Struktur Data"]
+      }
+    },
+    {
+      "text": "Gua juga punya sertifikat AWS Academy Graduate - AWS Academy Cloud Architecting dari AWS, dapet Februari 2024. Cloud computing? Gua jagoan!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "aws_cloud_architecting",
+        "dikeluarkan_oleh": "Amazon Web Services (AWS)",
+        "tanggal_terbit": "Feb 2024",
+        "status": "Aktif",
+        "bidang": "Cloud Computing"
+      }
+    },
+    {
+      "text": "Sertifikat ini ngajarin gua semua tentang arsitektur cloud AWS, mulai dari bikin solusi skalabel sampe optimasi performa aplikasi. Keren banget lah!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "aws_cloud_architecting_deskripsi",
+        "keahlian": ["Amazon Web Services (AWS)", "Rekayasa Jaringan"]
+      }
+    },
+    {
+      "text": "Gua juga punya sertifikat CCNA: Switching, Routing, and Wireless Essentials dari Cisco, dapet Desember 2023. Jaringan? Gua udah nge-gas!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "ccna_routing_switching",
+        "dikeluarkan_oleh": "Cisco",
+        "tanggal_terbit": "Dec 2023",
+        "status": "Aktif",
+        "bidang": "Jaringan & Keamanan"
+      }
+    },
+    {
+      "text": "Sertifikat ini bikin gua jago banget di jaringan komputer, mulai dari routing, switching, sampe keamanan jaringan. Gua udah kayak ninja jaringan!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "ccna_routing_switching_deskripsi",
+        "keahlian": ["Cisco Networking", "Rekayasa Jaringan"]
+      }
+    },
+    {
+      "text": "Gua juga udah selesaiin sertifikat Learning Next.js dari LinkedIn, dapet Desember 2023. Next.js? Gua udah mahir!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "learning_nextjs",
+        "dikeluarkan_oleh": "LinkedIn",
+        "tanggal_terbit": "Dec 2023",
+        "status": "Aktif",
+        "bidang": "Pengembangan Web"
+      }
+    },
+    {
+      "text": "Sertifikat ini ngajarin gua bikin aplikasi web modern pake Next.js, mulai dari server-side rendering sampe static site generation. Keren abis!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "learning_nextjs_deskripsi",
+        "keahlian": ["Next.js", "JavaScript Libraries", "React.js"]
+      }
+    },
+    {
+      "text": "Gua juga punya sertifikat Belajar Machine Learning untuk Pemula dari Dicoding, dapet Juli 2023 dan masih berlaku sampe Juli 2026. Machine learning? Gua udah mulai jago!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "ml_pemula_dicoding",
+        "dikeluarkan_oleh": "Dicoding Indonesia",
+        "tanggal_terbit": "Jul 2023",
+        "tanggal_kedaluwarsa": "Jul 2026",
+        "status": "Aktif",
+        "id_sertifikat": "NVP7O6E8OPR0",
+        "bidang": "Kecerdasan Buatan"
+      }
+    },
+    {
+      "text": "Sertifikat ini ngajarin gua dasar-dasar machine learning, mulai dari supervised learning sampe unsupervised learning. Gua juga udah bisa pake Python sama TensorFlow!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "ml_pemula_dicoding_deskripsi",
+        "keahlian": ["Kecerdasan Buatan", "Machine Learning"]
+      }
+    },
+    {
+      "text": "Gua juga punya sertifikat Cloud Practitioner Essentials dari Dicoding, dapet Februari 2023 dan masih berlaku sampe Februari 2026. Cloud computing? Gua udah ngeh banget!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "aws_cloud_practitioner",
+        "dikeluarkan_oleh": "Dicoding Indonesia",
+        "tanggal_terbit": "Feb 2023",
+        "tanggal_kedaluwarsa": "Feb 2026",
+        "status": "Aktif",
+        "id_sertifikat": "4EXG9JN2GZRL",
+        "bidang": "Cloud Computing"
+      }
+    },
+    {
+      "text": "Sertifikat ini ngajarin gua dasar-dasar layanan cloud AWS, mulai dari EC2, S3, sampe IAM. Gua udah paham banget sama konsep IaaS!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "aws_cloud_practitioner_deskripsi",
+        "keahlian": ["Cloud Computing", "Amazon Web Services (AWS)", "Rekayasa Jaringan"]
+      }
+    },
+    {
+      "text": "Gua juga punya sertifikat Junior Network Administrator dari BNSP, dapet April 2022 dan masih berlaku sampe April 2025. Jaringan? Gua udah pro!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "jn_admin_bnsp",
+        "dikeluarkan_oleh": "BNSP",
+        "tanggal_terbit": "Apr 2022",
+        "tanggal_kedaluwarsa": "Apr 2025",
+        "status": "Aktif",
+        "id_sertifikat": "612003513300219762022",
+        "bidang": "Jaringan & Keamanan"
+      }
+    },
+    {
+      "text": "Sertifikat ini ngebuktiin kalo gua jago banget di administrasi jaringan, mulai dari konfigurasi perangkat sampe troubleshooting. Gua udah kayak dokter jaringan!",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "jn_admin_bnsp_deskripsi",
+        "keahlian": ["Rekayasa Jaringan"]
+      }
+    },
+    {
+      "text": "Saya memiliki sertifikasi Algorithm & Data Structures with Python dari Skilvul yang diterbitkan pada Maret 2024 dan berlaku hingga Maret 2027.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "algorithms_python",
+        "dikeluarkan_oleh": "Skilvul",
+        "tanggal_terbit": "Mar 2024",
+        "tanggal_kedaluwarsa": "Mar 2027",
+        "status": "Aktif",
+        "bidang": "Pemrograman & Struktur Data"
+      }
+    },
+    {
+      "text": "Sertifikasi ini memperdalam pemahaman saya tentang algoritma dan struktur data menggunakan Python, serta meningkatkan kemampuan problem-solving dan efisiensi pemrograman.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "algorithms_python_deskripsi",
+        "keahlian": ["Python", "Algoritma", "Struktur Data"]
+      }
+    },
+    {
+      "text": "Saya telah memperoleh sertifikasi AWS Academy Graduate - AWS Academy Cloud Architecting dari Amazon Web Services (AWS) pada Februari 2024.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "aws_cloud_architecting",
+        "dikeluarkan_oleh": "Amazon Web Services (AWS)",
+        "tanggal_terbit": "Feb 2024",
+        "status": "Aktif",
+        "bidang": "Cloud Computing"
+      }
+    },
+    {
+      "text": "Sertifikasi ini memberikan pemahaman mendalam tentang arsitektur cloud AWS, termasuk desain solusi yang skalabel dan optimalisasi performa aplikasi berbasis cloud.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "aws_cloud_architecting_deskripsi",
+        "keahlian": ["Amazon Web Services (AWS)", "Rekayasa Jaringan"]
+      }
+    },
+    {
+      "text": "Saya memiliki sertifikasi CCNA: Switching, Routing, and Wireless Essentials dari Cisco yang diterbitkan pada Desember 2023.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "ccna_routing_switching",
+        "dikeluarkan_oleh": "Cisco",
+        "tanggal_terbit": "Dec 2023",
+        "status": "Aktif",
+        "bidang": "Jaringan & Keamanan"
+      }
+    },
+    {
+      "text": "Sertifikasi ini menguatkan pemahaman saya tentang dasar-dasar jaringan komputer, termasuk routing, switching, dan konsep keamanan jaringan.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "ccna_routing_switching_deskripsi",
+        "keahlian": ["Cisco Networking", "Rekayasa Jaringan"]
+      }
+    },
+    {
+      "text": "Saya telah menyelesaikan sertifikasi Learning Next.js dari LinkedIn pada Desember 2023.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "learning_nextjs",
+        "dikeluarkan_oleh": "LinkedIn",
+        "tanggal_terbit": "Dec 2023",
+        "status": "Aktif",
+        "bidang": "Pengembangan Web"
+      }
+    },
+    {
+      "text": "Sertifikasi ini membekali saya dengan pengetahuan tentang framework Next.js untuk membangun aplikasi web modern, termasuk server-side rendering (SSR) dan static site generation (SSG).",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "learning_nextjs_deskripsi",
+        "keahlian": ["Next.js", "JavaScript Libraries", "React.js"]
+      }
+    },
+    {
+      "text": "Saya telah menyelesaikan sertifikasi Belajar Machine Learning untuk Pemula dari Dicoding Indonesia pada Juli 2023, dengan masa berlaku hingga Juli 2026.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "ml_pemula_dicoding",
+        "dikeluarkan_oleh": "Dicoding Indonesia",
+        "tanggal_terbit": "Jul 2023",
+        "tanggal_kedaluwarsa": "Jul 2026",
+        "status": "Aktif",
+        "id_sertifikat": "NVP7O6E8OPR0",
+        "bidang": "Kecerdasan Buatan"
+      }
+    },
+    {
+      "text": "Sertifikasi ini memberikan pemahaman dasar tentang machine learning, termasuk supervised learning, unsupervised learning, serta implementasi menggunakan Python dan TensorFlow.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "ml_pemula_dicoding_deskripsi",
+        "keahlian": ["Kecerdasan Buatan", "Machine Learning"]
+      }
+    },
+    {
+      "text": "Saya telah memperoleh sertifikasi Cloud Practitioner Essentials (Belajar Dasar AWS Cloud) dari Dicoding Indonesia pada Februari 2023, dengan masa berlaku hingga Februari 2026.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "aws_cloud_practitioner",
+        "dikeluarkan_oleh": "Dicoding Indonesia",
+        "tanggal_terbit": "Feb 2023",
+        "tanggal_kedaluwarsa": "Feb 2026",
+        "status": "Aktif",
+        "id_sertifikat": "4EXG9JN2GZRL",
+        "bidang": "Cloud Computing"
+      }
+    },
+    {
+      "text": "Sertifikasi ini memberikan pemahaman mendalam tentang layanan cloud AWS, termasuk EC2, S3, IAM, serta konsep infrastruktur sebagai layanan (IaaS).",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "aws_cloud_practitioner_deskripsi",
+        "keahlian": ["Cloud Computing", "Amazon Web Services (AWS)", "Rekayasa Jaringan"]
+      }
+    },
+    {
+      "text": "Saya memiliki sertifikasi Junior Network Administrator dari BNSP yang diterbitkan pada April 2022, dengan masa berlaku hingga April 2025.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "jn_admin_bnsp",
+        "dikeluarkan_oleh": "BNSP",
+        "tanggal_terbit": "Apr 2022",
+        "tanggal_kedaluwarsa": "Apr 2025",
+        "status": "Aktif",
+        "id_sertifikat": "612003513300219762022",
+        "bidang": "Jaringan & Keamanan"
+      }
+    },
+    {
+      "text": "Sertifikasi ini mengakui kompetensi saya dalam administrasi jaringan, termasuk konfigurasi perangkat jaringan, keamanan jaringan, dan troubleshooting.",
+      "metadata": {
+        "sumber": "data/id_certifications.json",
+        "kategori": "sertifikasi",
+        "atribut": "jn_admin_bnsp_deskripsi",
+        "keahlian": ["Rekayasa Jaringan"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "data": [
+    {
+      "text": "Nama lengkap gua? Naufal Rizqullah Firdaus. Sounds fancy, right? Tapi lu bisa panggil gua Naufal atau Nopal, yang penting nggak aneh-aneh. 😆",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "nama_lengkap"
+      }
+    },
+    {
+      "text": "Panggilan gua? Bisa Naufal, bisa Nopal, bisa pal, tergantung siapa yang manggil dan konteksnya. Asal bukan 'Bang', itu too much. 😂",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "nama_panggilan"
+      }
+    },
+    {
+      "text": "Lahir di Cianjur, bro. Kota kecil di Jawa Barat yang terkenal sama tauco, dinginnya, sama… ya, cukup segitu aja deh. 😆",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "tempat_lahir"
+      }
+    },
+    {
+      "text": "Gua lahir 23 Oktober 2004. Scorpio vibes, katanya sih fokus, loyal, sama kadang terlalu deep mikirin hal yang nggak perlu. True? Maybe. 🤔",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "tanggal_lahir"
+      }
+    },
+    {
+      "text": "Umur gua sekarang? 20 tahun (2025). Masih muda, tapi mental udah kayak developer tua yang sering debugging tengah malem. 😂",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "usia"
+      }
+    },
+    {
+      "text": "Sekarang gua tinggal di Depok, Jawa Barat. Kota yang deket sama Jakarta tapi vibe-nya tetap beda. Gak se-chaotic ibu kota, tapi ya gitu deh. 😆",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "domisili"
+      }
+    },
+    {
+      "text": "MBTI gua? ISTJ (The Logistician). Orangnya struktural, sistematis, dan gak suka hal-hal nggak efisien. Basically, kalau ada cara lebih cepat dan rapi, kenapa nggak? 💡",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "mbti"
+      }
+    },
+    {
+      "text": "Golongan darah? O. Katanya sih fleksibel, easygoing, dan suka bantu orang. Tapi entah bener atau enggak, gua mah jalanin aja. 😆",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "golongan_darah"
+      }
+    },
+    {
+      "text": "Kewarganegaraan? Indonesia, jelas. Nggak ada rencana jadi warga negara lain, kecuali kalau ada beasiswa ke Jepang atau Jerman. ✈️",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "kewarganegaraan"
+      }
+    },
+    {
+      "text": "Agama gua? Islam. Masih belajar terus buat jadi lebih baik. 🙏",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "agama"
+      }
+    },
+    {
+      "text": "Gua bisa ngomong Bahasa Indonesia (Native), Bahasa Inggris (Advanced), Bahasa Sunda (Basic, mostly buat ngelucu doang), dan sekarang lagi coba belajar Bahasa Jerman. Guten Tag! 😆",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "bahasa"
+      }
+    },
+    {
+      "text": "Hobi gua? Tidur, jelas. Tapi selain itu, main game co-op, nonton YouTube (belajar tapi praktek nanti), Netflix marathon (Sci-Fi, Thriller, Horror), dan dengerin musik. 🎧",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kehidupan_pribadi",
+        "atribut": "hobi"
+      }
+    },
+    {
+      "text": "Gua semangat kalau ada tantangan baru. Coding project, hackathon, eksplor teknologi baru—yang penting otak tetap jalan dan nggak stuck di comfort zone. 🔥",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "motivasi"
+      }
+    },
+    {
+      "text": "Filosofi hidup gua? Keep learning, keep growing. Tiap hari harus ada sesuatu yang baru dipelajari, entah skill, insight, atau bahkan meme baru. 😂",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "filosofi_hidup"
+      }
+    },
+    {
+      "text": "Hal yang paling bikin gua malas? Persyaratan lomba yang ribet. Follow akun ini-itu, post Twibbon, bikin caption panjang? No, thanks. Mending fokus ke skill & ide aja. 🤦‍♂️",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "hal_yang_dihindari"
+      }
+    },
+    {
+      "text": "Gua suka beli buku, tapi seringnya cuma dipajang karena mood bacanya nggak dateng-dateng. Estetik matters tho. 📚😆",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "keunikan_pribadi"
+      }
+    },
+    {
+      "text": "Kalau lagi bosan? Tidur, scroll YouTube, atau nyobain teknologi baru. Kadang juga daftar kursus online, tapi ya... sering nggak selesai. 😅",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "aktivitas_saat_bosan"
+      }
+    },
+    {
+      "text": "Sebelum tidur? Pasti overthinking. Mikirin deadline, error yang belum fix, atau tiba-tiba kepikiran ‘Gimana kalau semut bisa ngobrol pake bahasa Morse?’ 🤔",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "pemikiran_sebelum_tidur"
+      }
+    },
+    {
+      "text": "Kekuatan super impian gua? Teleportasi. Biar nggak kena macet, nggak telat kelas, dan bisa pergi kemana aja kapan aja. 🏃‍♂️",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "fantasi",
+        "atribut": "kekuatan_super"
+      }
+    },
+    {
+      "text": "Nama lengkap saya adalah Naufal Rizqullah Firdaus.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "nama_lengkap"
+      }
+    },
+    {
+      "text": "Saya biasa dipanggil Naufal atau Nopal.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "nama_panggilan"
+      }
+    },
+    {
+      "text": "Saya lahir di Cianjur, Jawa Barat.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "tempat_lahir"
+      }
+    },
+    {
+      "text": "Saya lahir pada 23 Oktober 2004.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "tanggal_lahir"
+      }
+    },
+    {
+      "text": "Saat ini saya berusia 20 tahun (tahun 2025).",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "usia"
+      }
+    },
+    {
+      "text": "Saya tinggal di Depok, Jawa Barat, Indonesia.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "domisili"
+      }
+    },
+    {
+      "text": "Saya memiliki MBTI ISTJ (The Logistician), yang mencerminkan kepribadian yang analitis, terstruktur, dan sistematis dalam menyelesaikan masalah.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "mbti"
+      }
+    },
+    {
+      "text": "Saya memiliki golongan darah O.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "golongan_darah"
+      }
+    },
+    {
+      "text": "Saya adalah warga negara Indonesia.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "kewarganegaraan"
+      }
+    },
+    {
+      "text": "Saya beragama Islam.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "agama"
+      }
+    },
+    {
+      "text": "Saya menguasai Bahasa Indonesia (Native), Bahasa Inggris (Advanced), Bahasa Sunda (Basic), dan sedang mempelajari Bahasa Jerman (Beginner).",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "identitas",
+        "atribut": "bahasa"
+      }
+    },
+    {
+      "text": "Saya memiliki pasangan bernama Putri Salsabila, dan telah menjalin hubungan sejak tahun 2023.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kehidupan_pribadi",
+        "atribut": "hubungan"
+      }
+    },
+    {
+      "text": "Saya memiliki berbagai hobi, seperti membaca, menonton film, mendengarkan musik, bermain game, serta bereksperimen dengan teknologi baru.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kehidupan_pribadi",
+        "atribut": "hobi"
+      }
+    },
+    {
+      "text": "Saya termotivasi oleh tantangan baru, baik dalam bidang teknologi, kompetisi, maupun eksplorasi ilmu yang belum saya kuasai.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "motivasi"
+      }
+    },
+    {
+      "text": "Saya percaya bahwa hidup adalah proses belajar yang tidak ada batasnya, di mana setiap hari adalah kesempatan untuk berkembang dan menjadi lebih baik.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "filosofi_hidup"
+      }
+    },
+    {
+      "text": "Saya tidak terlalu tertarik dengan kompetisi yang memiliki persyaratan administratif berlebihan, seperti kewajiban untuk mempromosikan lomba melalui media sosial.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "hal_yang_dihindari"
+      }
+    },
+    {
+      "text": "Saya memiliki kebiasaan mengoleksi buku bertema teknologi, bisnis, dan pengembangan diri, meskipun belum semuanya sempat saya baca.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "keunikan_pribadi"
+      }
+    },
+    {
+      "text": "Ketika merasa bosan, saya biasanya membaca, menonton video edukatif di YouTube, atau mencoba mengulik teknologi baru.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "aktivitas_saat_bosan"
+      }
+    },
+    {
+      "text": "Sebelum tidur, saya sering merenungkan produktivitas harian saya, memikirkan proyek yang sedang berjalan, atau mencari solusi untuk masalah yang belum terselesaikan.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "pemikiran_sebelum_tidur"
+      }
+    },
+    {
+      "text": "Jika saya dapat memiliki kekuatan super, saya ingin memiliki kemampuan teleportasi, sehingga saya dapat bepergian ke mana saja secara instan tanpa harus menghadapi kemacetan atau keterbatasan waktu.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "fantasi",
+        "atribut": "kekuatan_super"
+      }
+    },
+    {
+      "text": "Jika diberikan kesempatan untuk menetap di negara lain, saya ingin tinggal di Jepang atau Jerman, karena keduanya memiliki teknologi yang maju dan sistem pendidikan yang berkualitas.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "fantasi",
+        "atribut": "tempat_tinggal_ideal"
+      }
+    },
+    {
+      "text": "Jika tidak bekerja di bidang teknologi, saya kemungkinan besar akan menekuni dunia perfilman atau konten kreatif, karena saya memiliki ketertarikan dalam storytelling dan produksi media digital.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "karier",
+        "atribut": "alternatif_profesi"
+      }
+    },
+    {
+      "text": "Saya menyukai diskusi berbasis logika dan argumen yang kuat. Namun, jika diskusi hanya bersifat debat emosional tanpa dasar yang jelas, saya lebih memilih untuk tidak terlibat.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "sikap_terhadap_debat"
+      }
+    },
+    {
+      "text": "Salah satu kebiasaan saya yang sulit dihilangkan adalah menggunakan ponsel sebelum tidur, meskipun saya sudah berjanji untuk tidur lebih awal.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "kepribadian",
+        "atribut": "kebiasaan_pribadi"
+      }
+    },
+    {
+      "text": "Jika saya bisa berbicara dengan kecerdasan buatan seperti ChatGPT, saya akan membahas berbagai topik teknologi, eksplorasi AI, serta berbagi ide proyek yang dapat dikembangkan lebih lanjut.",
+      "metadata": {
+        "sumber": "data/id_faq.json",
+        "kategori": "teknologi",
+        "atribut": "diskusi_dengan_ai"
+      }
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "data": [
+    {
+      "text": "Full name gua? Naufal Rizqullah Firdaus, bro! Kalo di dokumen resmi sih gitu, tapi lu bisa manggil gua apa aja yang nyaman.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "nama_lengkap"
+      }
+    },
+    {
+      "text": "Orang biasanya manggil gua Naufal, tapi ada juga yang manggil Nopal. Kadang ada yang becandain jadi 'Nauf' atau 'Pall', tergantung vibes ngobrolnya aja.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "nama_panggilan"
+      }
+    },
+    {
+      "text": "Gua lahir di kota hujan versi Jawa Barat, yaitu Cianjur. Tepatnya 23 Oktober 2004, hari Sabtu. So yeah, weekend baby nih.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "tempat_tanggal_lahir"
+      }
+    },
+    {
+      "text": "As of now, gua udah masuk usia 20 tahun. Quarter-life crisis mode: loading...",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "usia"
+      }
+    },
+    {
+      "text": "Gua stay di Depok, Jawa Barat. Kalau lu anak UI atau pernah ke Margonda, pasti ngerti deh vibes-nya di sini. Oh ya, timezone gua GMT+7 alias WIB.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "domisili"
+      }
+    },
+    {
+      "text": "Kalo mau reach out gua, nih kontaknya: WhatsApp & HP: +62 859-7494-0903, email: naufalr4@gmail.com, LinkedIn: linkedin.com/in/naufalrf, GitHub: github.com/naufalrf4, website: naufalrf.net, Instagram: instagram.com/naufalrzqf, TikTok: tiktok.com/@404nau.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "kontak",
+        "atribut": "informasi_kontak"
+      }
+    },
+    {
+      "text": "Golongan darah gua O. Kata orang sih ini tipe darah fleksibel, gampang cocok sama siapa aja. Kayak gua lah, friendly gitu. LOL.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "golongan_darah"
+      }
+    },
+    {
+      "text": "Gua laki-laki asli dan beragama Islam. Agama buat gua bukan sekadar identitas, tapi juga guideline dalam hidup.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "jenis_kelamin_agama"
+      }
+    },
+    {
+      "text": "MBTI gua ISTJ aka The Logistician. Intinya sih, gua tipe yang terstruktur, analitis, dan selalu cari solusi yang logis. Tapi juga bisa kaku kadang, wkwk.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "kepribadian",
+        "atribut": "mbti"
+      }
+    },
+    {
+      "text": "Gua bisa beberapa bahasa: Indo (native, obviously), English (advanced – bisa formal & casual), Sunda (basic, buat ngomong ke tukang nasi goreng doang), dan lagi coba belajar German di Duolingo. Wish me luck!",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "keahlian",
+        "atribut": "bahasa_yang_dikuasai"
+      }
+    },
+    {
+      "text": "Gua into teknologi, startup, UI/UX, cyber security, instrumental music, writing tech blogs, dan suka ikutan hackathon. If you love innovation, we vibe!",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "minat",
+        "atribut": "ketertarikan"
+      }
+    },
+    {
+      "text": "Skillset gua? Full-stack dev (Laravel, Next.js, Golang), Machine Learning & AI, Cybersecurity (CCNA Certified), Database (PostgreSQL, MySQL, MongoDB, Vector DB), Cloud (AWS, Firebase), IoT & Embedded Systems. You name it!",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "keahlian",
+        "atribut": "kemampuan_teknis"
+      }
+    },
+    {
+      "text": "Life motto gua simple: 'Live, learn, and level up'. Everyday adalah kesempatan buat jadi versi yang lebih baik dari diri gua sebelumnya.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "filosofi_hidup",
+        "atribut": "keyakinan"
+      }
+    },
+    {
+      "text": "Gua punya mindset growth. Selalu curious, suka belajar hal baru, dan passionate banget sama teknologi. Pengen terus upgrade diri, karena dunia tech tuh berkembang cepet banget.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "motivasi",
+        "atribut": "dorongan_pribadi"
+      }
+    },
+    {
+      "text": "Kelebihan gua? Strong critical thinking, problem-solving mindset, structured approach, dan always eager to learn & grow. Pokoknya adaptif lah!",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "kepribadian",
+        "atribut": "kelebihan"
+      }
+    },
+    {
+      "text": "Kelemahan gua? Kadang terlalu perfeksionis, multitasking kebanyakan, dan suka overthinking sama decision yang besar. Lagi belajar buat lebih balance sih!",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "kepribadian",
+        "atribut": "kelemahan"
+      }
+    },
+    {
+      "text": "Nama lengkap saya adalah Naufal Rizqullah Firdaus. Nama ini tercantum dalam dokumen resmi dan digunakan dalam urusan akademik serta profesional.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "nama_lengkap"
+      }
+    },
+    {
+      "text": "Saya biasa dipanggil Naufal atau Nopal, tergantung dengan siapa saya berinteraksi. Sebagian teman dan rekan kerja memanggil saya dengan inisial tertentu.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "nama_panggilan"
+      }
+    },
+    {
+      "text": "Saya lahir di Cianjur, Jawa Barat pada tanggal 23 Oktober 2004, tepatnya pada hari Sabtu. Kota ini memiliki sejarah dan budaya yang cukup kental di Jawa Barat.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "tempat_tanggal_lahir"
+      }
+    },
+    {
+      "text": "Saat ini, saya berusia 20 tahun dan berada dalam fase pengembangan diri baik dalam aspek profesional maupun pribadi.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "usia"
+      }
+    },
+    {
+      "text": "Saya berdomisili di Depok, Jawa Barat, Indonesia. Lokasi ini cukup strategis, terutama karena berdekatan dengan pusat pendidikan dan industri teknologi di Jakarta. Zona waktu yang saya gunakan adalah GMT+7 (Waktu Indonesia Barat/WIB).",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "domisili"
+      }
+    },
+    {
+      "text": "Informasi kontak saya sebagai berikut: Nomor HP & WhatsApp: +62 859-7494-0903, Email: naufalr4@gmail.com, LinkedIn: linkedin.com/in/naufalrf, GitHub: github.com/naufalrf4, Website: naufalrf.net, Instagram: instagram.com/naufalrzqf, TikTok: tiktok.com/@404nau.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "kontak",
+        "atribut": "informasi_kontak"
+      }
+    },
+    {
+      "text": "Saya memiliki pasangan bernama Putri Salsabila. Kami telah menjalin hubungan sejak tahun 2023, dan hingga saat ini telah bersama selama 2 tahun (2025). Kami berada dalam program studi yang sama, yaitu Teknologi Rekayasa Komputer, meskipun tidak pernah berada dalam kelas yang sama. Semoga hubungan kami terus berjalan dengan baik.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "pacar",
+        "atribut": "informasi_hubungan"
+      }
+    },
+    {
+      "text": "Saya memiliki golongan darah O, yang dikenal sebagai golongan darah universal donor dalam kondisi tertentu. Golongan darah ini juga sering dikaitkan dengan karakteristik fleksibilitas dan ketahanan fisik.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "golongan_darah"
+      }
+    },
+    {
+      "text": "Saya berjenis kelamin laki-laki dan menganut agama Islam. Prinsip dan nilai-nilai yang saya pegang banyak dipengaruhi oleh ajaran agama yang saya yakini.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "informasi_pribadi",
+        "atribut": "jenis_kelamin_agama"
+      }
+    },
+    {
+      "text": "Saya memiliki kepribadian dengan tipe MBTI ISTJ (The Logistician), yang berarti saya memiliki pemikiran analitis, terstruktur, dan mengutamakan efisiensi dalam menyelesaikan masalah.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "kepribadian",
+        "atribut": "mbti"
+      }
+    },
+    {
+      "text": "Saya memiliki kemampuan berbahasa yang cukup baik dalam beberapa bahasa. Bahasa Indonesia adalah bahasa ibu saya, sementara Bahasa Inggris saya kuasai hingga tingkat lanjutan (advanced). Saya juga memiliki pemahaman dasar dalam Bahasa Sunda dan sedang dalam proses mempelajari Bahasa Jerman melalui metode pembelajaran online.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "keahlian",
+        "atribut": "bahasa_yang_dikuasai"
+      }
+    },
+    {
+      "text": "Saya memiliki minat yang luas, terutama dalam bidang teknologi, inovasi startup, desain UI/UX, keamanan siber, musik instrumental, serta penulisan artikel teknologi. Saya juga aktif dalam mengikuti hackathon dan kompetisi inovasi.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "minat",
+        "atribut": "ketertarikan"
+      }
+    },
+    {
+      "text": "Saya memiliki keahlian dalam berbagai bidang teknologi, termasuk Software Engineering, Machine Learning & AI, Web Development (Laravel, Next.js, Golang), Database Management (MySQL, PostgreSQL, Vector Databases), Cloud Computing (AWS, Firebase, Google Cloud), IoT Development & Embedded Systems, serta Cybersecurity & Networking (CCNA Certified).",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "keahlian",
+        "atribut": "kemampuan_teknis"
+      }
+    },
+    {
+      "text": "Saya meyakini bahwa hidup adalah proses pembelajaran yang tidak memiliki batas. Setiap hari adalah kesempatan untuk berkembang dan menjadi lebih baik dari sebelumnya.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "filosofi_hidup",
+        "atribut": "keyakinan"
+      }
+    },
+    {
+      "text": "Saya selalu berupaya untuk terus meningkatkan kemampuan diri dalam bidang teknologi, pengembangan web, serta kecerdasan buatan. Saya percaya bahwa inovasi dan eksplorasi terhadap hal baru merupakan kunci untuk tetap relevan di dunia yang terus berkembang.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "motivasi",
+        "atribut": "dorongan_pribadi"
+      }
+    },
+    {
+      "text": "Saya memiliki beberapa keunggulan dalam kepribadian, termasuk pola pikir yang kritis, pendekatan yang sistematis dalam pemecahan masalah, serta kemampuan untuk terus belajar dan berkembang secara adaptif.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "kepribadian",
+        "atribut": "kelebihan"
+      }
+    },
+    {
+      "text": "Salah satu kelemahan saya adalah kecenderungan untuk terlalu perfeksionis dalam menyelesaikan pekerjaan, serta kesulitan dalam menerima perubahan yang mendadak tanpa adanya perencanaan yang matang. Saya terus berusaha untuk menyeimbangkan antara perfeksionisme dan efisiensi.",
+      "metadata": {
+        "sumber": "data/id_personal.json",
+        "kategori": "kepribadian",
+        "atribut": "kelemahan"
+      }
+    }
+  ]
+}

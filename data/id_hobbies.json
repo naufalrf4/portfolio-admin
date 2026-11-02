@@ -1,0 +1,116 @@
+{
+  "data": [
+    {
+      "text": "Tidur di mana aja, kapan aja, selama ada kesempatan. Istirahat itu bagian dari produktivitas juga.",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "tidur"
+      }
+    },
+    {
+      "text": "Main game bareng temen, terutama yang butuh teamwork dan strategi.",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "main_game"
+      }
+    },
+    {
+      "text": "Nonton video di YouTube buat belajar hal baru, dari teknologi sampai topik random yang menarik.",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "nonton_youtube"
+      }
+    },
+    {
+      "text": "Menonton film sebagai hiburan dan inspirasi, terutama yang punya cerita unik atau visual menarik.",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "nonton_film"
+      }
+    },
+    {
+      "text": "Dengerin lagu dari berbagai genre, dari pop, rock alternatif, hingga hip-hop.",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "musik"
+      }
+    },
+    {
+      "text": "Ikut kompetisi atau lomba yang menantang, terutama di bidang teknologi dan inovasi.",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "ikut_lomba"
+      }
+    },
+    {
+      "text": "Mengoleksi buku bertema teknologi, bisnis, dan pengembangan diri, meskipun belum tentu langsung dibaca.",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "koleksi_buku"
+      }
+    },
+    {
+      "text": "Tidur di mana aja, kapan aja. As long as ada kesempatan, why not?",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "tidur"
+      }
+    },
+    {
+      "text": "Gaming time! Paling seru kalau co-op, apalagi yang bikin teamwork kacau.",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "main_game"
+      }
+    },
+    {
+      "text": "Nonton YouTube buat self-improvement, tapi seringnya malah ke-distract video random. 🤡",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "nonton_youtube"
+      }
+    },
+    {
+      "text": "Netflix mode: on. Genre wajib? Action, Sci-Fi, Thriller, Horror.",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "nonton_film"
+      }
+    },
+    {
+      "text": "Dengerin musik biar vibes jalan, from chill to full energy. 🎧",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "musik"
+      }
+    },
+    {
+      "text": "Ikut lomba kalau lagi mood, asal nggak ribet harus bikin Twibbon. 😆",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "ikut_lomba"
+      }
+    },
+    {
+      "text": "Beli buku buat koleksi aesthetic, bacanya nanti... someday. 🤭",
+      "metadata": {
+        "sumber": "data/id_hobbies.json",
+        "kategori": "hobi",
+        "atribut": "koleksi_buku"
+      }
+    }
+  ]
+}

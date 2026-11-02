@@ -1,0 +1,292 @@
+{
+  "data": [
+    {
+      "text": "SEMAPOR (Semarang Lapor) itu platform web buat warga Semarang biar bisa lapor masalah, lacak progress, dan interaksi sama pemerintah daerah secara real-time. Gampang banget, tinggal klik-klik!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "semapor_deskripsi"
+      }
+    },
+    {
+      "text": "SEMAPOR dibangun pake Laravel, Bootstrap, MySQL, sama Express.js. Tech stack-nya kekinian banget, bro!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "semapor_teknologi"
+      }
+    },
+    {
+      "text": "Fitur SEMAPOR keren-keren, ada manajemen user pake role-based system, lapor masalah real-time, plus peta interaktif buat lacak progress. Kaya Google Maps, tapi buat lapor masalah!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "semapor_fitur_utama"
+      }
+    },
+    {
+      "text": "IslamicVerse itu platform web buat Muslim, ada jadwal shalat based on location plus chatbot AI yang bisa jawab pertanyaan seputar Islam. Kaya Siri, tapi Islami!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "islamicverse_deskripsi"
+      }
+    },
+    {
+      "text": "IslamicVerse dibikin pake HTML, Bootstrap, JQuery, sama Express.js. Simpel sih, tapi fungsional banget!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "islamicverse_teknologi"
+      }
+    },
+    {
+      "text": "Fitur IslamicVerse ada jadwal shalat otomatis based on location sama chatbot AI yang bisa ngobrol tentang Islam. Keren lah, buat yang rajin ibadah!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "islamicverse_fitur_utama"
+      }
+    },
+    {
+      "text": "BRIEFF 6.0 itu platform buat daftar, kurasi, sama evaluasi film di acara Bogor Independent Film Festival. Buat para sineas, ini tools wajib!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "brieff6_deskripsi"
+      }
+    },
+    {
+      "text": "BRIEFF 6.0 dibangun pake CodeIgniter, MySQL, sama Bootstrap. Tech stack-nya jadul dikit, tapi masih oke lah!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "brieff6_teknologi"
+      }
+    },
+    {
+      "text": "Fitur BRIEFF 6.0 ada pendaftaran film, pengajuan karya, sama dashboard khusus buat peserta, kurator, sama juri. Semua bisa diatur dari satu platform!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "brieff6_fitur_utama"
+      }
+    },
+    {
+      "text": "Agridation 2024 itu platform kompetisi pertanian nasional yang bikin pendaftaran online, manajemen tahapan, sama notifikasi otomatis. Buat yang suka inovasi di bidang pertanian, ini solusinya!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "agridation_deskripsi"
+      }
+    },
+    {
+      "text": "Agridation 2024 dibikin pake Laravel, Bootstrap, sama MySQL. Tech stack-nya modern, cocok buat generasi muda!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "agridation_teknologi"
+      }
+    },
+    {
+      "text": "Fitur Agridation 2024 ada login pake Google OAuth biar gampang daftar, plus manajemen kompetisi yang lengkap. Semua serba otomatis, tinggal fokus sama inovasinya!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "agridation_fitur_utama"
+      }
+    },
+    {
+      "text": "LinkedIn Accept itu tools otomatis buat terima koneksi LinkedIn secara massal. Gak perlu capek-capek klik satu-satu, tinggal jalanin script-nya!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "linkedin_accept_deskripsi"
+      }
+    },
+    {
+      "text": "LinkedIn Accept dibikin pake Python sama Selenium. Buat yang males manual, ini solusinya!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "linkedin_accept_teknologi"
+      }
+    },
+    {
+      "text": "Fitur LinkedIn Accept ada login otomatis, terima undangan massal, sama log aktivitas real-time. Jadi, kita bisa tau siapa aja yang udah di-approve!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "linkedin_accept_fitur_utama"
+      }
+    },
+    {
+      "text": "SoltarinE itu stasiun pengisian daya bertenaga surya berbasis IoT, khusus buat sektor pertanian. Bisa pantau performa real-time, jadi gak perlu khawatir listrik mati!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "soltarine_deskripsi"
+      }
+    },
+    {
+      "text": "SoltarinE dibangun pake ESP32, Next.js, TailwindCSS, sama Firebase. Tech stack-nya kekinian banget, bro!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "soltarine_teknologi"
+      }
+    },
+    {
+      "text": "Fitur SoltarinE ada pelacak surya dual-axis biar efisiensi daya maksimal, plus pemantauan IoT berbasis cloud. Jadi, kita bisa pantau dari mana aja!",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "soltarine_fitur_utama"
+      }
+    },
+    {
+      "text": "SEMAPOR (Semarang Lapor) adalah platform berbasis web yang dirancang untuk memudahkan warga Semarang dalam melaporkan masalah, melacak progress, dan berinteraksi dengan pemerintah daerah secara real-time.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "semapor_deskripsi"
+      }
+    },
+    {
+      "text": "SEMAPOR dikembangkan menggunakan Laravel, Bootstrap, MySQL, dan Express.js sebagai teknologi utama.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "semapor_teknologi"
+      }
+    },
+    {
+      "text": "Fitur utama SEMAPOR meliputi manajemen pengguna berbasis peran, pelaporan dan pelacakan masalah secara real-time, serta peta interaktif untuk memantau progress laporan.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "semapor_fitur_utama"
+      }
+    },
+    {
+      "text": "IslamicVerse adalah platform web yang menyediakan jadwal shalat berbasis lokasi dan chatbot Islami berbasis AI untuk mendukung kebutuhan komunitas Muslim.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "islamicverse_deskripsi"
+      }
+    },
+    {
+      "text": "IslamicVerse dibangun dengan teknologi HTML, Bootstrap, JQuery, dan Express.js.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "islamicverse_teknologi"
+      }
+    },
+    {
+      "text": "Fitur utama IslamicVerse mencakup jadwal shalat otomatis berdasarkan lokasi pengguna dan chatbot AI yang dapat menjawab pertanyaan seputar Islam.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "islamicverse_fitur_utama"
+      }
+    },
+    {
+      "text": "BRIEFF 6.0 adalah platform yang dirancang untuk pendaftaran, kurasi, dan evaluasi film dalam acara Bogor Independent Film Festival.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "brieff6_deskripsi"
+      }
+    },
+    {
+      "text": "BRIEFF 6.0 dikembangkan menggunakan CodeIgniter, MySQL, dan Bootstrap sebagai teknologi utama.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "brieff6_teknologi"
+      }
+    },
+    {
+      "text": "Fitur utama BRIEFF 6.0 meliputi pendaftaran dan pengajuan film, serta dashboard berbasis peran untuk peserta, kurator, dan juri.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "brieff6_fitur_utama"
+      }
+    },
+    {
+      "text": "Agridation 2024 adalah platform kompetisi pertanian nasional yang mendukung inovasi dan kolaborasi dengan fitur pendaftaran online, pengelolaan tahapan kompetisi, dan notifikasi otomatis.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "agridation_deskripsi"
+      }
+    },
+    {
+      "text": "Agridation 2024 dikembangkan menggunakan Laravel, Bootstrap, dan MySQL sebagai teknologi utama.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "agridation_teknologi"
+      }
+    },
+    {
+      "text": "Fitur utama Agridation 2024 mencakup login menggunakan Google OAuth untuk memudahkan pendaftaran dan manajemen kompetisi yang komprehensif.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "agridation_fitur_utama"
+      }
+    },
+    {
+      "text": "LinkedIn Accept adalah alat otomatisasi berbasis Python yang dirancang untuk membantu pengguna menerima permintaan koneksi LinkedIn secara massal dengan navigasi otomatis.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "linkedin_accept_deskripsi"
+      }
+    },
+    {
+      "text": "LinkedIn Accept dikembangkan menggunakan Python dan Selenium untuk otomatisasi penerimaan koneksi LinkedIn.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "linkedin_accept_teknologi"
+      }
+    },
+    {
+      "text": "Fitur utama LinkedIn Accept meliputi login otomatis, penerimaan massal undangan koneksi, dan log aktivitas real-time.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "linkedin_accept_fitur_utama"
+      }
+    },
+    {
+      "text": "SoltarinE adalah stasiun pengisian daya bertenaga surya berbasis IoT yang dirancang khusus untuk sektor pertanian, dengan kemampuan pemantauan performa secara real-time.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "soltarine_deskripsi"
+      }
+    },
+    {
+      "text": "SoltarinE dikembangkan menggunakan ESP32, Next.js, TailwindCSS, dan Firebase sebagai teknologi utama.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "soltarine_teknologi"
+      }
+    },
+    {
+      "text": "Fitur utama SoltarinE meliputi pelacak surya dual-axis untuk efisiensi daya maksimal dan pemantauan IoT berbasis cloud.",
+      "metadata": {
+        "sumber": "data/id_projects.json",
+        "kategori": "proyek",
+        "atribut": "soltarine_fitur_utama"
+      }
+    }
+  ]
+}

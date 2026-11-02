@@ -1,0 +1,164 @@
+{
+  "data": [
+    {
+      "text": "Gua sekarang kuliah di IPB University, Bogor, Jawa Barat, ambil Sarjana Terapan Teknik Komputer. Start dari 2022, insyaAllah kelar di 2026. Doain cepet lulus yak!",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "universitas"
+      }
+    },
+    {
+      "text": "Di IPB, gua fokus banget di hardware, jaringan, dan IoT. Tapi nggak cuma itu, gua juga mendalami web dev, AI, sama software engineering. So basically, gua nge-mix dunia hardware & software biar makin powerfull!",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "bidang_fokus_universitas"
+      }
+    },
+    {
+      "text": "Gua gaspol banget di proyek-proyek IoT, Machine Learning, sama Web Dev. Dari yang sekedar tugas kampus sampai kompetisi dan riset, gua selalu coba push limit biar makin berkembang!",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "proyek_pengembangan"
+      }
+    },
+    {
+      "text": "Gua masuk Top 10% Mahasiswa Teknik Komputer, no cap. Mata kuliah favorit? Ofc, Embedded Systems, Machine Learning, Web Programming, dan Software Engineering. Pokoknya yang bikin otak gua kerja maksimal!",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "prestasi_universitas"
+      }
+    },
+    {
+      "text": "Selain jadi mahasiswa, gua juga sering jadi mentor buat anak-anak junior yang baru mulai di tech & coding. Trus, gua juga aktif di hackathon, AI challenge, sama software development competition. Hustling all the way up!",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "kegiatan_universitas"
+      }
+    },
+    {
+      "text": "Sebelum ke IPB, gua anak SMKS Nasional Depok. Ambil jurusan Teknik Komputer & Jaringan, dari 2019 sampai 2022. Basic networking gua dibangun di sini, literally dari nol.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "sekolah_menengah"
+      }
+    },
+    {
+      "text": "Di SMK, gua belajar all about networking. Dari kabel LAN sampai konfigurasi server, semuanya gua pelajari. Bisa dibilang, ini era di mana gua jadi 'anak kabel' full time.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "bidang_fokus_smk"
+      }
+    },
+    {
+      "text": "Selain belajar teori, gua juga hands-on banget di infrastruktur jaringan, sistem operasi jaringan, dan cybersecurity. Bahkan, gua sempet mimpin proyek IT sekolah buat upgrade sistem jaringan internal. Real-world impact, bro!",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "pengalaman_smk"
+      }
+    },
+    {
+      "text": "Lulus dari SMK? Gua nggak cuma lulus biasa, tapi dengan predikat sangat baik di bidang jaringan & server admin. Salah satu pencapaian terbesar gua adalah ngembangin sistem monitoring jaringan sekolah pake open-source tools.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "prestasi_smk"
+      }
+    },
+    {
+      "text": "Dulu di SMK, gua sempet jadi perwakilan sekolah buat lomba tingkat provinsi. Itu pengalaman priceless sih, bisa adu skill sama anak-anak tech lain dari berbagai daerah!",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "kompetisi_smk"
+      }
+    },
+    {
+      "text": "Saya saat ini merupakan mahasiswa di IPB University, Bogor, Jawa Barat, dan sedang menempuh program Sarjana Terapan Teknik Komputer. Saya memulai studi pada tahun 2022 dan diperkirakan akan menyelesaikannya pada tahun 2026.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "universitas"
+      }
+    },
+    {
+      "text": "Selama berkuliah di IPB University, saya fokus mempelajari berbagai aspek dalam bidang teknologi, termasuk perangkat keras (hardware), jaringan komputer, serta Internet of Things (IoT). Selain itu, saya juga mendalami pengembangan perangkat lunak (software engineering), kecerdasan buatan (Artificial Intelligence/AI), serta teknologi berbasis web.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "bidang_fokus_universitas"
+      }
+    },
+    {
+      "text": "Saya aktif mengembangkan berbagai proyek berbasis IoT, Machine Learning, dan Web Development yang telah saya implementasikan dalam berbagai kompetisi dan penelitian akademik. Setiap proyek yang saya kerjakan selalu berorientasi pada solusi nyata terhadap masalah industri dan masyarakat.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "proyek_pengembangan"
+      }
+    },
+    {
+      "text": "Saya berhasil masuk dalam jajaran 10% mahasiswa terbaik di program Teknik Komputer di IPB University. Mata kuliah yang menjadi minat utama saya meliputi Embedded Systems, Machine Learning, Web Programming, serta Software Engineering. Saya selalu berusaha mengoptimalkan pemahaman dan penerapan konsep dalam bidang tersebut.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "prestasi_universitas"
+      }
+    },
+    {
+      "text": "Selain fokus dalam studi, saya juga aktif berkontribusi sebagai mentor bagi mahasiswa junior dalam bidang teknologi dan pemrograman. Saya secara rutin mengikuti berbagai kompetisi, termasuk hackathon, kompetisi kecerdasan buatan, serta software development challenge guna mengasah keterampilan dan memperluas wawasan.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "kegiatan_universitas"
+      }
+    },
+    {
+      "text": "Sebelum melanjutkan ke IPB University, saya menyelesaikan pendidikan menengah di SMKS Nasional Depok, Jawa Barat. Saya mengambil jurusan Teknik Komputer & Jaringan dan menempuh pendidikan dari tahun 2019 hingga 2022.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "sekolah_menengah"
+      }
+    },
+    {
+      "text": "Selama bersekolah di SMKS Nasional Depok, saya mempelajari fundamental jaringan komputer mulai dari tahap dasar hingga tingkat lanjut. Saya memperoleh pengalaman langsung dalam konfigurasi kabel LAN, perancangan infrastruktur jaringan, serta administrasi sistem server.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "bidang_fokus_smk"
+      }
+    },
+    {
+      "text": "Selain mengikuti kurikulum standar, saya juga mendalami bidang keamanan siber, manajemen sistem operasi jaringan, serta implementasi infrastruktur IT. Saya turut berkontribusi dalam pengembangan dan optimalisasi sistem jaringan internal sekolah melalui proyek berbasis teknologi informasi.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "pengalaman_smk"
+      }
+    },
+    {
+      "text": "Saya menyelesaikan pendidikan di SMK dengan hasil yang sangat baik, khususnya dalam bidang administrasi jaringan dan server. Salah satu pencapaian yang saya raih adalah mengembangkan sistem monitoring jaringan sekolah berbasis open-source, yang membantu meningkatkan efisiensi pengelolaan jaringan di lingkungan sekolah.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "prestasi_smk"
+      }
+    },
+    {
+      "text": "Saat bersekolah di SMKS Nasional Depok, saya terpilih sebagai perwakilan sekolah dalam kompetisi IT tingkat provinsi. Pengalaman ini memberikan wawasan yang luas mengenai standar industri dan meningkatkan keterampilan teknis serta kompetitif saya dalam bidang teknologi informasi.",
+      "metadata": {
+        "sumber": "data/education.json",
+        "kategori": "pendidikan",
+        "atribut": "kompetisi_smk"
+      }
+    }
+  ]
+}

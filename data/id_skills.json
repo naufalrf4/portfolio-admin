@@ -1,0 +1,356 @@
+{
+  "data": [
+    {
+      "text": "Gua jago bikin web pakai Laravel, Next.js, sama Golang. Backend, frontend? Semuanya gua gaspol!",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "pengembangan_web"
+      }
+    },
+    {
+      "text": "Database? No problemo! Gua biasa nge-handle MySQL, PostgreSQL, sama Vector Databases. Querying, indexing, optimization? Done ✅",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "manajemen_database"
+      }
+    },
+    {
+      "text": "Gua main di Machine Learning & AI, dari data preprocessing sampe bikin chatbot AI yang bisa diajak ngobrol santai.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "machine_learning_ai"
+      }
+    },
+    {
+      "text": "Gua sering ngulik IoT & embedded systems. Pokoknya, kalau ada device yang bisa di-hack jadi smart, gua bakal utak-atik!",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "iot_embedded_systems"
+      }
+    },
+    {
+      "text": "Cloud computing? Gua biasa deploy di AWS, Firebase, sama Google Cloud. Tinggal spin-up, konfigurasi, auto-scale, done!",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "cloud_computing"
+      }
+    },
+    {
+      "text": "Cybersecurity is a must! Gua certified CCNA dan sering mainin network security buat ngebuild sistem yang solid & aman.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "keamanan_jaringan"
+      }
+    },
+    {
+      "text": "Gua sering automate things pake Python, Selenium, sama Bash. Why kerja manual kalau bisa auto? 😆",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "otomasi_scripting"
+      }
+    },
+    {
+      "text": "Gua punya leadership skill yang kuat! Pernah mimpin beberapa tim proyek, dan selalu ngejaga semua tetap on track.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "kepemimpinan"
+      }
+    },
+    {
+      "text": "Komunikasi itu penting! Gua bisa nyampein ide dengan jelas, dari meeting sampai pitching ke stakeholders.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "komunikasi"
+      }
+    },
+    {
+      "text": "Kerja tim? Easy. Gua bisa blend ke dalam tim mana aja dan keep the workflow smooth & efficient.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "kerja_tim"
+      }
+    },
+    {
+      "text": "Problem-solving is my thing. Mau bug seaneh apapun, gua bakal trace & fix with logical thinking! 🔥",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "pemecahan_masalah"
+      }
+    },
+    {
+      "text": "Gua fast learner & adaptif banget sama teknologi baru. No matter what tech stack, gua bisa catch up cepet.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "adaptasi"
+      }
+    },
+    {
+      "text": "Manajemen waktu itu kunci sukses! Gua bisa multitask tanpa kehilangan fokus di setiap proyek yang gua handle.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "manajemen_waktu"
+      }
+    },
+    {
+      "text": "Gua suka mikir out-of-the-box buat solve problem. Critical thinking is my superpower! 💡",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "berpikir_kritis"
+      }
+    },
+    {
+      "text": "Gua nyaman banget public speaking, dari presentasi proyek sampai sharing session di komunitas tech.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "public_speaking"
+      }
+    },
+    {
+      "text": "Gua selalu pake Git buat version control. Gak ada yang namanya 'final_final_v3_fixed'.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "git_version_control"
+      }
+    },
+    {
+      "text": "API testing? Gua andalin Postman buat debug dan pastiin request-response berjalan smooth.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "postman_api_testing"
+      }
+    },
+    {
+      "text": "Gua biasa nge-deploy aplikasi pake Docker. Containerization itu game changer, serius!",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "docker"
+      }
+    },
+    {
+      "text": "Backend? Gua sering build pake Node.js. Real-time processing? No problem!",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "nodejs"
+      }
+    },
+    {
+      "text": "Frontend? Gua bisa build pake Vue.js. Smooth UI/UX? Wajib! 😎",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "vuejs"
+      }
+    },
+    {
+      "text": "Gua suka pake Prisma buat ORM di backend, karena bikin pengelolaan database jauh lebih gampang.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "prisma_orm"
+      }
+    },
+    {
+      "text": "UI/UX design? Gua pake Figma buat wireframing dan prototyping biar desain makin clean & efisien.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "figma_uiux"
+      }
+    },
+    {
+      "text": "Saya memiliki keahlian dalam pengembangan web menggunakan Laravel, Next.js, dan Golang, serta memahami arsitektur frontend dan backend secara mendalam.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "pengembangan_web"
+      }
+    },
+    {
+      "text": "Saya memiliki pengalaman dalam manajemen database menggunakan MySQL, PostgreSQL, dan Vector Databases, termasuk optimasi query dan indexing untuk meningkatkan performa sistem.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "manajemen_database"
+      }
+    },
+    {
+      "text": "Saya memiliki keahlian dalam Machine Learning dan Artificial Intelligence (AI), mulai dari pemrosesan data hingga pengembangan chatbot berbasis AI dan sistem prediktif.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "machine_learning_ai"
+      }
+    },
+    {
+      "text": "Saya memiliki kompetensi dalam pengembangan IoT dan sistem embedded, dengan fokus pada solusi berbasis teknologi yang efisien dan scalable.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "iot_embedded_systems"
+      }
+    },
+    {
+      "text": "Saya memiliki pengalaman dalam Cloud Computing, termasuk penggunaan layanan AWS, Firebase, dan Google Cloud untuk deployment dan manajemen infrastruktur berbasis cloud.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "cloud_computing"
+      }
+    },
+    {
+      "text": "Saya memiliki keahlian dalam keamanan jaringan dan cybersecurity, serta memiliki sertifikasi CCNA yang mendukung pemahaman mendalam mengenai infrastruktur jaringan yang aman dan efisien.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "keamanan_jaringan"
+      }
+    },
+    {
+      "text": "Saya memiliki pengalaman dalam otomasi dan scripting menggunakan Python, Selenium, dan Bash, yang membantu dalam proses optimasi dan efisiensi kerja.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "otomasi_scripting"
+      }
+    },
+    {
+      "text": "Saya memiliki keterampilan kepemimpinan yang baik dalam mengelola tim dan memastikan proyek berjalan sesuai rencana dengan koordinasi yang efektif.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "kepemimpinan"
+      }
+    },
+    {
+      "text": "Saya memiliki keterampilan komunikasi yang baik, yang memungkinkan saya untuk menyampaikan ide secara jelas dalam diskusi teknis maupun non-teknis.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "komunikasi"
+      }
+    },
+    {
+      "text": "Saya memiliki kemampuan kerja tim yang kuat dalam proyek kolaboratif dan lintas disiplin, serta mampu beradaptasi dengan berbagai gaya kerja.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "kerja_tim"
+      }
+    },
+    {
+      "text": "Saya memiliki keterampilan analisis dan pemecahan masalah yang efektif dalam menangani tantangan teknis maupun manajerial.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "pemecahan_masalah"
+      }
+    },
+    {
+      "text": "Saya memiliki tingkat adaptasi yang tinggi terhadap perubahan teknologi, memungkinkan saya untuk mempelajari dan mengimplementasikan teknologi baru dengan cepat.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "adaptasi"
+      }
+    },
+    {
+      "text": "Saya memiliki keterampilan manajemen waktu yang baik, yang memungkinkan saya untuk menyelesaikan tugas secara efisien dan tepat waktu.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "manajemen_waktu"
+      }
+    },
+    {
+      "text": "Saya memiliki keterampilan berpikir kritis yang kuat, yang membantu saya dalam mengevaluasi dan menganalisis suatu masalah secara komprehensif sebelum mengambil keputusan.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "berpikir_kritis"
+      }
+    },
+    {
+      "text": "Saya memiliki kemampuan public speaking yang baik dalam menyampaikan ide, melakukan presentasi, serta berbicara di depan umum secara profesional.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "public_speaking"
+      }
+    },
+    {
+      "text": "Saya terbiasa menggunakan Git untuk version control, memastikan kolaborasi proyek berjalan dengan baik serta pengelolaan kode lebih terstruktur.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "git_version_control"
+      }
+    },
+    {
+      "text": "Saya memiliki pengalaman dalam API Testing menggunakan Postman untuk memastikan integrasi API berjalan dengan optimal dan tanpa error.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "postman_api_testing"
+      }
+    },
+    {
+      "text": "Saya berpengalaman menggunakan Docker untuk containerization, yang memungkinkan deployment aplikasi lebih fleksibel dan scalable.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "docker"
+      }
+    },
+    {
+      "text": "Saya menggunakan Node.js dalam pengembangan backend berbasis JavaScript, memungkinkan saya membangun aplikasi server-side yang cepat dan efisien.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "nodejs"
+      }
+    },
+    {
+      "text": "Saya memiliki pengalaman dalam pengembangan frontend menggunakan Vue.js, yang memungkinkan saya membangun antarmuka pengguna yang responsif dan interaktif.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "vuejs"
+      }
+    },
+    {
+      "text": "Saya menggunakan Prisma sebagai ORM dalam pengelolaan database pada proyek backend, memudahkan interaksi dengan basis data secara lebih efisien.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "prisma_orm"
+      }
+    },
+    {
+      "text": "Saya menggunakan Figma untuk desain UI/UX dalam pengembangan aplikasi digital, memastikan desain yang intuitif dan user-friendly.",
+      "metadata": {
+        "sumber": "data/id_skills.json",
+        "kategori": "keterampilan",
+        "atribut": "figma_uiux"
+      }
+    }
+  ]
+}

@@ -102,7 +102,7 @@ type SeedProject = {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const repoRoot = path.resolve(__dirname, '../../..');
+const repoRoot = path.resolve(__dirname, '..');
 const dataDir = path.join(repoRoot, 'data');
 
 const PROTECTED_ATTRIBUTES = new Set([
