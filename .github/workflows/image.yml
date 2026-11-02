@@ -29,7 +29,6 @@ jobs:
           target: prod
           push: ${{ github.event_name != 'pull_request' }}
           build-args: |
-            NEXT_PUBLIC_TURNSTILE_SITE_KEY=${{ vars.ADMIN_NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
             NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=${{ vars.ADMIN_NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }}
             NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ vars.ADMIN_NEXT_PUBLIC_GA_MEASUREMENT_ID }}
             NEXT_PUBLIC_VAPID_PUBLIC_KEY=${{ vars.ADMIN_NEXT_PUBLIC_VAPID_PUBLIC_KEY }}
