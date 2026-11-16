@@ -1,0 +1,1 @@
+ALTER TABLE "llm_settings" ADD COLUMN "agent_config" jsonb DEFAULT '{}'::jsonb NOT NULL;

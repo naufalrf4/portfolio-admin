@@ -7,6 +7,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
+import { Textarea } from '@/components/ui/textarea';
+import {
+  CHATBOT_TOOLS,
+  DEFAULT_AGENT_CONFIG,
+  type AgentConfig,
+} from '@/lib/ai/agent-config';
 import {
   CHUNK_VECTOR_DIMENSION,
   DEFAULT_BASE_URL,
@@ -28,6 +34,7 @@ interface LlmConfigResponse {
   embeddingApiKeySet: boolean;
   embeddingModel: string;
   embeddingDimension: number;
+  agentConfig: AgentConfig;
 }
 
 const emptySlot = (provider: LlmProvider, model: string): LlmSlotValue => ({
@@ -52,6 +59,7 @@ export function AiConfigTab() {
   const [fallbackEnabled, setFallbackEnabled] = useState(false);
   const [embeddingDimension, setEmbeddingDimension] = useState(CHUNK_VECTOR_DIMENSION);
   const [probing, setProbing] = useState(false);
+  const [agentConfig, setAgentConfig] = useState<AgentConfig>(DEFAULT_AGENT_CONFIG);
 
   const dimensionMismatch = embeddingDimension !== CHUNK_VECTOR_DIMENSION;
 
@@ -90,6 +98,7 @@ export function AiConfigTab() {
           }));
         }
         setEmbeddingDimension(d.embeddingDimension);
+        setAgentConfig(d.agentConfig ?? DEFAULT_AGENT_CONFIG);
       } catch {
         if (active) setError('Failed to load AI config');
       } finally {
@@ -207,6 +216,7 @@ export function AiConfigTab() {
           embeddingApiKey: embedding.apiKey,
           embeddingModel: embedding.model,
           embeddingDimension,
+          agentConfig,
         }),
       });
 
@@ -248,7 +258,7 @@ export function AiConfigTab() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-[var(--text-secondary)]">
-          Providers used by the RAG chatbot. Changes are picked up within 30 seconds.
+          Providers and agent behavior used by the RAG chatbot. Changes are picked up within 10 seconds.
         </p>
         <Button variant="primary" onClick={handleSave} disabled={saving}>
           {saving ? (
@@ -330,6 +340,168 @@ export function AiConfigTab() {
           </div>
         </LlmSlotCard>
       </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Agent, JEv & Tools</CardTitle>
+          <CardDescription>
+            Configure JEv routing and guardrail questions, retrieval behavior, and the tools the
+            assistant may select. The JEv API key stays in the RAG deployment secret. User text and,
+            when enabled, the final answer are sent to TypeSafe after email and phone redaction; enable
+            Zero Data Retention before using personal data in production.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-5">
+          <div className="space-y-2">
+            <Label htmlFor="jev-model">JEv model</Label>
+            <Input
+              id="jev-model"
+              value={agentConfig.jevModel}
+              onChange={(event) =>
+                setAgentConfig((current) => ({ ...current, jevModel: event.target.value }))
+              }
+              maxLength={100}
+            />
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            <div className="space-y-2">
+              <Label htmlFor="jev-routing-schema">Routing question / schema guidance</Label>
+              <Textarea
+                id="jev-routing-schema"
+                value={agentConfig.routingInstructions}
+                onChange={(event) =>
+                  setAgentConfig((current) => ({
+                    ...current,
+                    routingInstructions: event.target.value,
+                  }))
+                }
+                maxLength={3000}
+                rows={6}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="jev-input-safety">Input safety criteria</Label>
+              <Textarea
+                id="jev-input-safety"
+                value={agentConfig.inputSafetyInstructions}
+                onChange={(event) =>
+                  setAgentConfig((current) => ({
+                    ...current,
+                    inputSafetyInstructions: event.target.value,
+                  }))
+                }
+                maxLength={3000}
+                rows={6}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="jev-output-safety">Output safety criteria</Label>
+              <Textarea
+                id="jev-output-safety"
+                value={agentConfig.outputSafetyInstructions}
+                onChange={(event) =>
+                  setAgentConfig((current) => ({
+                    ...current,
+                    outputSafetyInstructions: event.target.value,
+                  }))
+                }
+                maxLength={3000}
+                rows={6}
+              />
+            </div>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="space-y-3">
+              <Label>Available tools</Label>
+              {CHATBOT_TOOLS.map((tool) => (
+                <label key={tool} className="flex items-center gap-3 text-sm">
+                  <Switch
+                    checked={agentConfig.enabledTools.includes(tool)}
+                    onCheckedChange={(checked) =>
+                      setAgentConfig((current) => ({
+                        ...current,
+                        enabledTools: checked
+                          ? [...new Set([...current.enabledTools, tool])]
+                          : current.enabledTools.filter((item) => item !== tool),
+                      }))
+                    }
+                    aria-label={`Enable ${tool}`}
+                  />
+                  <span>{tool.replace(/_/g, ' ')}</span>
+                </label>
+              ))}
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <Label htmlFor="retrieval-enabled">Portfolio knowledge retrieval</Label>
+                  <p className="text-xs text-[var(--text-secondary)]">
+                    Embeddings are used only when the route selects portfolio search.
+                  </p>
+                </div>
+                <Switch
+                  id="retrieval-enabled"
+                  checked={agentConfig.retrievalEnabled}
+                  onCheckedChange={(retrievalEnabled) =>
+                    setAgentConfig((current) => ({ ...current, retrievalEnabled }))
+                  }
+                />
+              </div>
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <Label htmlFor="output-guardrail">JEv output review</Label>
+                  <p className="text-xs text-[var(--text-secondary)]">
+                    Reviews the final answer before it is returned; adds one JEv request.
+                  </p>
+                </div>
+                <Switch
+                  id="output-guardrail"
+                  checked={agentConfig.outputGuardrailEnabled}
+                  onCheckedChange={(outputGuardrailEnabled) =>
+                    setAgentConfig((current) => ({ ...current, outputGuardrailEnabled }))
+                  }
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="retrieval-limit">Maximum retrieved references</Label>
+                <Input
+                  id="retrieval-limit"
+                  type="number"
+                  min={1}
+                  max={10}
+                  value={agentConfig.retrievalLimit}
+                  onChange={(event) =>
+                    setAgentConfig((current) => ({
+                      ...current,
+                      retrievalLimit: Math.min(10, Math.max(1, Number(event.target.value) || 1)),
+                    }))
+                  }
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="agent-confidence">JEv confidence threshold</Label>
+                <Input
+                  id="agent-confidence"
+                  type="number"
+                  min={0.5}
+                  max={0.99}
+                  step={0.01}
+                  value={agentConfig.confidenceThreshold}
+                  onChange={(event) =>
+                    setAgentConfig((current) => ({
+                      ...current,
+                      confidenceThreshold: Math.min(
+                        0.99,
+                        Math.max(0.5, Number(event.target.value) || 0.5),
+                      ),
+                    }))
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>

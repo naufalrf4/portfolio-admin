@@ -8,6 +8,7 @@ import {
   serverErrorResponse,
 } from '@/lib/api/responses';
 import { updateKnowledgeDocSchema } from '@/lib/validations/knowledge.schema';
+import { queueRagIngest } from '@/lib/services/ragIngest';
 
 interface RouteContext {
   params: Promise<{ id: string }>;
@@ -51,6 +52,7 @@ async function handlePut(req: NextRequest, context: RouteContext) {
     }
 
     const doc = await knowledgeDocsService.update(id, validation.data);
+    queueRagIngest({ type: 'knowledge', documentId: id });
     return successResponse(doc, 'Knowledge document updated');
   } catch {
     return serverErrorResponse('Failed to update knowledge document');

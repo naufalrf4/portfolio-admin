@@ -120,6 +120,13 @@
       "when": 1788240073611,
       "tag": "0016_lying_mandrill",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1794830351290,
+      "tag": "0017_great_polaris",
+      "breakpoints": true
     }
   ]
 }

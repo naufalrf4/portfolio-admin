@@ -6,6 +6,7 @@ import { successResponse, validationErrorResponse, serverErrorResponse } from '@
 import { createId } from '@paralleldrive/cuid2';
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
+import { agentConfigSchema, DEFAULT_AGENT_CONFIG, normalizeAgentConfig } from '@/lib/ai/agent-config';
 
 const llmConfigSchema = z.object({
   mainProvider: z.enum(['openai-compatible', 'gemini']),
@@ -21,6 +22,7 @@ const llmConfigSchema = z.object({
   embeddingApiKey: z.string(),
   embeddingModel: z.string().min(1),
   embeddingDimension: z.number().int().positive().optional(),
+  agentConfig: agentConfigSchema.default(DEFAULT_AGENT_CONFIG),
 });
 
 async function handleGet() {
@@ -47,6 +49,7 @@ async function handleGet() {
       embeddingApiKeySet: row.embeddingApiKey.length > 0,
       embeddingModel: row.embeddingModel,
       embeddingDimension: row.embeddingDimension,
+      agentConfig: normalizeAgentConfig(row.agentConfig),
     });
   } catch {
     return serverErrorResponse();
@@ -90,6 +93,7 @@ async function handlePut(req: NextRequest) {
           embeddingApiKey: keepExisting(data.embeddingApiKey, existing?.embeddingApiKey),
           embeddingModel: data.embeddingModel,
           embeddingDimension: data.embeddingDimension ?? 1536,
+          agentConfig: data.agentConfig,
           updatedAt: now,
         })
         .where(eq(llmSettings.id, existing.id));
@@ -112,6 +116,7 @@ async function handlePut(req: NextRequest) {
       embeddingApiKey: data.embeddingApiKey,
       embeddingModel: data.embeddingModel,
       embeddingDimension: data.embeddingDimension ?? 1536,
+      agentConfig: data.agentConfig,
       createdAt: now,
       updatedAt: now,
     });

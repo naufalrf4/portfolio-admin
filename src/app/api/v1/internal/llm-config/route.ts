@@ -3,6 +3,7 @@ import { withServiceAuth } from '@/lib/api/middleware/auth';
 import { db } from '@/lib/db';
 import { llmSettings } from '@/lib/db/schema';
 import { successResponse, serverErrorResponse } from '@/lib/api/responses';
+import { normalizeAgentConfig } from '@/lib/ai/agent-config';
 
 async function handleGet(_req: NextRequest) {
   try {
@@ -35,6 +36,7 @@ async function handleGet(_req: NextRequest) {
         model: row.embeddingModel,
       },
       embeddingDimension: row.embeddingDimension,
+      agentConfig: normalizeAgentConfig(row.agentConfig),
     });
   } catch {
     return serverErrorResponse('Failed to read LLM config');

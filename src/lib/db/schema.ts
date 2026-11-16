@@ -832,6 +832,7 @@ export const llmSettings = pgTable('llm_settings', {
   embeddingModel: text('embedding_model').notNull().default('text-embedding-3-small'),
 
   embeddingDimension: integer('embedding_dimension').notNull().default(1536),
+  agentConfig: jsonb('agent_config').notNull().default({}),
 
   createdAt: timestamp({ precision: 3, withTimezone: true, mode: 'string' })
     .default(sql`CURRENT_TIMESTAMP`)

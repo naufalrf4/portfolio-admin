@@ -6,6 +6,7 @@ import {
   knowledgeDocQuerySchema,
   createKnowledgeDocSchema,
 } from '@/lib/validations/knowledge.schema';
+import { queueRagIngest } from '@/lib/services/ragIngest';
 
 async function handleGet(req: NextRequest) {
   try {
@@ -39,6 +40,7 @@ async function handlePost(req: NextRequest) {
     }
 
     const doc = await knowledgeDocsService.create(validation.data);
+    queueRagIngest({ type: 'knowledge', documentId: doc.id });
     return successResponse(doc, 'Knowledge document created');
   } catch {
     return serverErrorResponse('Failed to create knowledge document');
