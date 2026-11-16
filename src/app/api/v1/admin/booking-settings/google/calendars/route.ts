@@ -7,7 +7,7 @@ import {
   GoogleCalendarAuthError,
 } from '@/lib/services/googleCalendarService';
 
-async function handleGet(request: NextRequest) {
+async function handleGet(_request: NextRequest) {
   try {
     const settings = await bookingSettingsService.getInternal();
 
