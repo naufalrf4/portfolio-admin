@@ -13,7 +13,11 @@ export const createAchievementSchema = z.object({
   visible: z.boolean().default(true),
 });
 
-export const updateAchievementSchema = createAchievementSchema.partial();
+export const updateAchievementSchema = createAchievementSchema.partial().extend({
+  photos: z.array(assetValueSchema).optional(),
+  order: z.coerce.number().int().optional(),
+  visible: z.boolean().optional(),
+});
 
 export const achievementQuerySchema = z.object({
   visible: z.coerce.boolean().optional(),

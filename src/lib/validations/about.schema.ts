@@ -10,7 +10,7 @@ const experienceItemSchema = z.object({
   startDate: z.string().min(1),
   endDate: z.string().optional().or(z.literal('')).nullable(),
   description: z.string().optional().or(z.literal('')),
-  logoUrl: assetValueSchema.optional().or(z.literal('')),
+  logoUrl: assetValueSchema.optional().or(z.literal('')).nullable(),
   skills: z.array(z.string().min(1).max(100)).max(20).optional(),
 });
 

@@ -8,7 +8,10 @@ export const createProfileLinkSchema = z.object({
   order: z.number().int().default(0),
 });
 
-export const updateProfileLinkSchema = createProfileLinkSchema.partial();
+export const updateProfileLinkSchema = createProfileLinkSchema.partial().extend({
+  visible: z.boolean().optional(),
+  order: z.number().int().optional(),
+});
 
 export const reorderProfileLinksSchema = z.object({
   linkIds: z.array(z.string()).min(1, 'At least one link ID is required'),

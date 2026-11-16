@@ -10,7 +10,9 @@ export const createBlogLinkSchema = z.object({
   publishedAt: z.string().optional().or(z.literal('')),
 });
 
-export const updateBlogLinkSchema = createBlogLinkSchema.partial();
+export const updateBlogLinkSchema = createBlogLinkSchema.partial().extend({
+  tags: z.array(z.string()).optional(),
+});
 
 export const reorderBlogLinksSchema = z.object({
   blogIds: z.array(z.string()),

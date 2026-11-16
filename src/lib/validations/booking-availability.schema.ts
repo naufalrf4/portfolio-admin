@@ -1,13 +1,25 @@
 import { z } from 'zod';
 
-export const createBookingAvailabilitySchema = z.object({
+const bookingAvailabilityFields = z.object({
   dayOfWeek: z.number().min(0).max(6),
   startTime: z.string().regex(/^\d{2}:\d{2}$/),
   endTime: z.string().regex(/^\d{2}:\d{2}$/),
   enabled: z.boolean().optional().default(true),
 });
 
-export const updateBookingAvailabilitySchema = createBookingAvailabilitySchema.partial();
+export const createBookingAvailabilitySchema = bookingAvailabilityFields.refine((value) => value.endTime > value.startTime, {
+  message: 'End time must be later than start time',
+  path: ['endTime'],
+});
+
+export const updateBookingAvailabilitySchema = bookingAvailabilityFields.partial().extend({
+  enabled: z.boolean().optional(),
+}).refine((value) =>
+  value.startTime === undefined || value.endTime === undefined || value.endTime > value.startTime,
+{
+  message: 'End time must be later than start time',
+  path: ['endTime'],
+});
 
 export const bulkUpdateAvailabilitySchema = z.object({
   dayOfWeek: z.number().min(0).max(6),

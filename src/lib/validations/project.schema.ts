@@ -18,7 +18,13 @@ export const createProjectSchema = z.object({
   projectDate: z.string().max(50).optional().nullable(),
 });
 
-export const updateProjectSchema = createProjectSchema.partial();
+export const updateProjectSchema = createProjectSchema.partial().extend({
+  techStack: z.array(z.string()).optional(),
+  tags: z.array(z.string()).optional(),
+  featured: z.boolean().optional(),
+  visible: z.boolean().optional(),
+  order: z.number().int().optional(),
+});
 
 export const projectQuerySchema = z.object({
   page: z.coerce.number().int().positive().default(1),
