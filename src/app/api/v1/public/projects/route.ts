@@ -51,6 +51,7 @@ export async function GET(req: NextRequest) {
           .select({
             id: projectImages.id,
             url: projectImages.url,
+            key: projectImages.key,
             order: projectImages.order,
             alt: projectImages.alt,
             caption: projectImages.caption,

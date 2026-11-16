@@ -103,6 +103,14 @@ function extractStorageKeyFromUrl(value: string): string | null {
 
     const rawPath = decodeURIComponent(parsedUrl.pathname.replace(/^\/+/, ''));
 
+    if (/^[a-f0-9]{32}\.r2\.cloudflarestorage\.com$/i.test(parsedUrl.hostname)) {
+      const bucketPrefix = `${process.env.ADMIN_R2_BUCKET_NAME?.trim()}/`;
+      if (bucketPrefix !== '/' && rawPath.startsWith(bucketPrefix)) {
+        return rawPath.slice(bucketPrefix.length) || null;
+      }
+      return rawPath || null;
+    }
+
     if (
       parsedUrl.hostname === 'storage.googleapis.com' &&
       rawPath.startsWith(`${LEGACY_GCS_BUCKET_NAME}/`)

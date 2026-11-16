@@ -4,6 +4,8 @@ import { db } from '@/lib/db';
 import { projectImages, projects } from '@/lib/db/schema';
 import { eq, asc, desc } from 'drizzle-orm';
 import { createId } from '@paralleldrive/cuid2';
+import { storageService } from '@/lib/services/storage';
+import { z } from 'zod';
 
 interface RouteContext {
   params: Promise<{ id: string }>;
@@ -11,6 +13,13 @@ interface RouteContext {
 
 type ProjectImageInsert = typeof projectImages.$inferInsert;
 type ProjectUpdate = Partial<Pick<typeof projects.$inferInsert, 'thumbnailId' | 'updatedAt'>>;
+
+const createProjectImageSchema = z.object({
+  url: z.string().url(),
+  key: z.string().regex(/^projects\/.+/),
+  caption: z.string().max(500).nullable().optional(),
+  alt: z.string().max(500).nullable().optional(),
+});
 
 async function handleGet(_request: NextRequest, { params }: RouteContext) {
   try {
@@ -21,9 +30,16 @@ async function handleGet(_request: NextRequest, { params }: RouteContext) {
       .where(eq(projectImages.projectId, id))
       .orderBy(asc(projectImages.order));
 
+    const signedImages = await Promise.all(
+      images.map(async (image) => ({
+        ...image,
+        url: image.key ? await storageService.signGetUrl(image.key) : image.url,
+      }))
+    );
+
     return NextResponse.json({
       success: true,
-      data: images,
+      data: signedImages,
     });
   } catch {
     return NextResponse.json({ success: false, error: 'Failed to fetch images' }, { status: 500 });
@@ -34,11 +50,14 @@ async function handlePost(request: NextRequest, { params }: RouteContext) {
   try {
     const { id } = await params;
     const body = await request.json();
-    const { url, key, caption, alt } = body;
-
-    if (!url || !key) {
-      return NextResponse.json({ error: 'URL and key are required' }, { status: 400 });
+    const validation = createProjectImageSchema.safeParse(body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid project image', details: validation.error.flatten().fieldErrors },
+        { status: 400 }
+      );
     }
+    const { key, caption, alt } = validation.data;
 
     const maxOrderResult = await db
       .select({ order: projectImages.order })
@@ -53,7 +72,7 @@ async function handlePost(request: NextRequest, { params }: RouteContext) {
     const imageData: ProjectImageInsert = {
       id: createId(),
       projectId: id,
-      url,
+      url: key,
       key,
       caption,
       alt,
@@ -70,9 +89,15 @@ async function handlePost(request: NextRequest, { params }: RouteContext) {
 
     return NextResponse.json({
       success: true,
-      data: image,
+      data: {
+        ...image,
+        url: await storageService.signGetUrl(key),
+      },
     });
-  } catch {
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      return NextResponse.json({ success: false, error: 'Invalid JSON body' }, { status: 400 });
+    }
     return NextResponse.json({ success: false, error: 'Failed to create image' }, { status: 500 });
   }
 }

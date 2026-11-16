@@ -4,6 +4,7 @@ import { db } from '@/lib/db';
 import { projectImages, projects } from '@/lib/db/schema';
 import { and, asc, eq } from 'drizzle-orm';
 import { storageService } from '@/lib/services/storage';
+import { z } from 'zod';
 
 interface RouteContext {
   params: Promise<{ id: string; imageId: string }>;
@@ -16,23 +17,24 @@ type ProjectThumbnailUpdate = Partial<
   Pick<typeof projects.$inferInsert, 'thumbnailId' | 'updatedAt'>
 >;
 
+const updateProjectImageSchema = z.object({
+  caption: z.string().max(500).nullable().optional(),
+  alt: z.string().max(500).nullable().optional(),
+  order: z.number().int().nonnegative().optional(),
+}).refine((value) => Object.keys(value).length > 0);
+
 async function handlePatch(request: NextRequest, { params }: RouteContext) {
   try {
     const { id, imageId } = await params;
     const body = await request.json();
-    const { caption, alt, order } = body;
-
-    const updateData: ProjectImageUpdate = {};
-
-    if (caption !== undefined) {
-      updateData.caption = caption;
+    const validation = updateProjectImageSchema.safeParse(body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid image update', details: validation.error.flatten().fieldErrors },
+        { status: 400 }
+      );
     }
-    if (alt !== undefined) {
-      updateData.alt = alt;
-    }
-    if (order !== undefined) {
-      updateData.order = order;
-    }
+    const updateData: ProjectImageUpdate = validation.data;
 
     const [image] = await db
       .update(projectImages)
@@ -48,7 +50,10 @@ async function handlePatch(request: NextRequest, { params }: RouteContext) {
       success: true,
       data: image,
     });
-  } catch {
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      return NextResponse.json({ success: false, error: 'Invalid JSON body' }, { status: 400 });
+    }
     return NextResponse.json({ success: false, error: 'Failed to update image' }, { status: 500 });
   }
 }
@@ -68,11 +73,11 @@ async function handleDelete(request: NextRequest, { params }: RouteContext) {
       return NextResponse.json({ error: 'Image not found' }, { status: 404 });
     }
 
-    await storageService.deleteFile(image.key);
-
     await db
       .delete(projectImages)
       .where(and(eq(projectImages.id, imageId), eq(projectImages.projectId, id)));
+
+    await storageService.deleteFile(image.key);
 
     const remainingImages = await db
       .select()

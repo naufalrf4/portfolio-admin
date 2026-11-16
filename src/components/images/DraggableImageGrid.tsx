@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   DndContext,
   closestCenter,
@@ -141,6 +141,10 @@ export function DraggableImageGrid({ images, projectId, onUpdate }: DraggableIma
   const [items, setItems] = useState(images);
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [updating, setUpdating] = useState(false);
+
+  useEffect(() => {
+    setItems(images);
+  }, [images]);
 
   const sensors = useSensors(
     useSensor(PointerSensor),

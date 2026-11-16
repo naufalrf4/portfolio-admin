@@ -1,5 +1,17 @@
+interface MediaObject {
+	httpMetadata?: { contentType?: string };
+	size: number;
+	body: ReadableStream<Uint8Array> | null;
+	range?: { offset: number; length: number };
+	writeHttpMetadata(headers: Headers): void;
+}
+
 interface Env {
-  MEDIA: R2Bucket;
+	// Cloudflare injects the R2 binding; keep only the methods used by this worker typed here.
+	MEDIA: {
+		head(key: string): Promise<MediaObject | null>;
+		get(key: string, options?: { range: Headers }): Promise<MediaObject | null>;
+	};
 }
 
 const PUBLIC_FOLDERS = new Set(['about', 'projects', 'achievements']);

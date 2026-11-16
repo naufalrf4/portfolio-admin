@@ -3,6 +3,7 @@ import { withAdminAuthContext } from '@/lib/api/middleware/auth';
 import { db } from '@/lib/db';
 import { projects } from '@/lib/db/schema';
 import { eq } from 'drizzle-orm';
+import { z } from 'zod';
 
 interface RouteContext {
   params: Promise<{ id: string }>;
@@ -12,19 +13,23 @@ type ProjectContentUpdate = Partial<
   Pick<typeof projects.$inferInsert, 'content' | 'summary' | 'updatedAt'>
 >;
 
+const projectContentUpdateSchema = z.object({
+  content: z.string().max(200_000).optional(),
+  summary: z.string().trim().min(1).max(500).optional(),
+}).refine((value) => value.content !== undefined || value.summary !== undefined);
+
 async function handlePatch(request: NextRequest, { params }: RouteContext) {
   try {
     const { id } = await params;
     const body = await request.json();
-    const { content, summary } = body;
-
-    if (content === undefined && summary === undefined) {
-      return NextResponse.json({ error: 'Content or summary is required' }, { status: 400 });
+    const validation = projectContentUpdateSchema.safeParse(body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid project content', details: validation.error.flatten().fieldErrors },
+        { status: 400 }
+      );
     }
-
-    if (content !== undefined && typeof content !== 'string') {
-      return NextResponse.json({ error: 'Content must be markdown text' }, { status: 400 });
-    }
+    const { content, summary } = validation.data;
 
     const contentToSave = content;
 
@@ -58,7 +63,10 @@ async function handlePatch(request: NextRequest, { params }: RouteContext) {
         updatedAt: project.updatedAt,
       },
     });
-  } catch {
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      return NextResponse.json({ success: false, error: 'Invalid JSON body' }, { status: 400 });
+    }
     return NextResponse.json(
       { success: false, error: 'Failed to update content' },
       { status: 500 }

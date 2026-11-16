@@ -41,10 +41,13 @@ export function mapPublicImageUrls<T extends SignableRecord>(
       if (!item || typeof item !== 'object') return item;
       const mappedItem = { ...(item as Record<string, unknown>) };
       for (const field of fields) {
-        if (typeof mappedItem[field] === 'string') {
-          mappedItem[field] = toPublicImageUrl(mappedItem[field] as string);
+        const stableKey = typeof mappedItem.key === 'string' ? mappedItem.key : null;
+        const value = stableKey ?? mappedItem[field];
+        if (typeof value === 'string') {
+          mappedItem[field] = toPublicImageUrl(value);
         }
       }
+      delete mappedItem.key;
       return mappedItem;
     });
   }
