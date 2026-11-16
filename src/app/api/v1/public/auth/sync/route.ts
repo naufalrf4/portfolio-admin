@@ -1,19 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { users } from '@/lib/db/schema';
-import { successResponse, serverErrorResponse, validationErrorResponse } from '@/lib/api/responses';
+import { eq } from 'drizzle-orm';
+import {
+  successResponse,
+  serverErrorResponse,
+  unauthorizedResponse,
+  validationErrorResponse,
+} from '@/lib/api/responses';
 import { getSubmissionContext } from '@/lib/api/submission-context';
 import { checkRateLimit, getRateLimitHeaders } from '@/lib/services/rate-limiter';
+import { verifyGuestbookToken } from '@/lib/guestbook-token';
 import { z } from 'zod';
-import { createId } from '@paralleldrive/cuid2';
-
-type UserInsert = typeof users.$inferInsert;
-type UserConflictUpdate = Partial<Pick<typeof users.$inferInsert, 'name' | 'image' | 'updatedAt'>>;
 
 const syncUserSchema = z.object({
-  email: z.string().email('Invalid email'),
-  name: z.string().optional(),
-  image: z.string().url().optional().nullable(),
+  guestbookToken: z.string().min(1, 'Missing guestbook token').max(4096),
 });
 
 const RATE_LIMIT_CONFIG = {
@@ -56,40 +57,24 @@ export async function POST(request: NextRequest) {
       return validationErrorResponse(parsed.error.flatten().fieldErrors);
     }
 
-    const { email, name, image } = parsed.data;
-
-    const now = new Date().toISOString();
-    const userData: UserInsert = {
-      id: createId(),
-      email,
-      name,
-      image,
-      role: 'USER',
-      createdAt: now,
-      updatedAt: now,
-    };
-
-    const conflictUpdate: UserConflictUpdate = { updatedAt: now };
-    if (name) {
-      conflictUpdate.name = name;
-    }
-    if (image) {
-      conflictUpdate.image = image;
+    const identity = await verifyGuestbookToken(parsed.data.guestbookToken);
+    if (!identity) {
+      const response = unauthorizedResponse('Guestbook sign-in expired. Please sign in again.');
+      Object.entries(rateLimitHeaders).forEach(([key, value]) => response.headers.set(key, value));
+      return response;
     }
 
     const [user] = await db
-      .insert(users)
-      .values(userData)
-      .onConflictDoUpdate({
-        target: users.email,
-        set: conflictUpdate,
-      })
-      .returning({
-        id: users.id,
-        email: users.email,
-        name: users.name,
-        image: users.image,
-      });
+      .select({ id: users.id, email: users.email, name: users.name, image: users.image })
+      .from(users)
+      .where(eq(users.id, identity.sub))
+      .limit(1);
+
+    if (!user) {
+      const response = unauthorizedResponse('User not found. Please sign in again.');
+      Object.entries(rateLimitHeaders).forEach(([key, value]) => response.headers.set(key, value));
+      return response;
+    }
 
     const response = successResponse(user, 'User synced successfully');
 

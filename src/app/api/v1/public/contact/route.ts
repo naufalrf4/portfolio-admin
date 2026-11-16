@@ -19,10 +19,10 @@ import { notificationService } from '@/lib/services/notificationService';
 import { logger } from '@/lib/utils/logger';
 
 const createContactSchema = z.object({
-  name: z.string().min(1, 'Name is required').max(100),
-  email: z.string().email('Invalid email').max(255),
-  subject: z.string().max(200).optional(),
-  message: z.string().min(1, 'Message is required').max(5000),
+  name: z.string().trim().min(1, 'Name is required').max(100),
+  email: z.string().trim().email('Invalid email').max(255),
+  subject: z.string().trim().max(200).optional(),
+  message: z.string().trim().min(1, 'Message is required').max(5000),
   turnstileToken: z.string().max(2048).optional(),
 });
 
@@ -176,7 +176,10 @@ export async function POST(request: NextRequest) {
     });
 
     return response;
-  } catch {
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      return errorResponse('Invalid JSON body', 400);
+    }
     return serverErrorResponse();
   }
 }

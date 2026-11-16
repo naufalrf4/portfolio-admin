@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { db } from '@/lib/db';
 import { bookings, bookingSlots, bookingSettings } from '@/lib/db/schema';
-import { eq } from 'drizzle-orm';
+import { and, eq } from 'drizzle-orm';
 import {
   successResponse,
   validationErrorResponse,
@@ -26,10 +26,10 @@ import { formatJakartaDateKeyLabel, jakartaWallClockToInstant } from '@/lib/util
 
 const publicBookingSchema = z.object({
   slotId: z.string().min(1),
-  name: z.string().min(1).max(100),
-  email: z.string().email().max(255),
-  phone: z.string().max(20).optional(),
-  notes: z.string().max(1000).optional(),
+  name: z.string().trim().min(1).max(100),
+  email: z.string().trim().email().max(255),
+  phone: z.string().trim().max(20).optional(),
+  notes: z.string().trim().max(1000).optional(),
   turnstileToken: z.string().optional(),
   timezone: z.string().max(100).optional(),
 });
@@ -126,10 +126,15 @@ export async function POST(request: NextRequest) {
 
     const nowStr = new Date().toISOString();
     const booking = await db.transaction(async (tx) => {
-      await tx
+      const [claimedSlot] = await tx
         .update(bookingSlots)
         .set({ status: 'BOOKED', updatedAt: nowStr })
-        .where(eq(bookingSlots.id, slotId));
+        .where(and(eq(bookingSlots.id, slotId), eq(bookingSlots.status, 'AVAILABLE')))
+        .returning({ id: bookingSlots.id });
+
+      if (!claimedSlot) {
+        throw new Error('BOOKING_SLOT_ALREADY_CLAIMED');
+      }
 
       const [created] = await tx
         .insert(bookings)
@@ -228,6 +233,9 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     if (error instanceof SyntaxError) {
       return errorResponse('Invalid JSON body', 400);
+    }
+    if (error instanceof Error && error.message === 'BOOKING_SLOT_ALREADY_CLAIMED') {
+      return errorResponse('This time slot is no longer available', 409);
     }
     return serverErrorResponse();
   }

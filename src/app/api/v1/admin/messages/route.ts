@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { withAdminAuth } from '@/lib/api/middleware/auth';
 import { anonymousMessagesService } from '@/lib/api/handlers/anonymous-messages.service';
-import { successResponse, serverErrorResponse, validationErrorResponse } from '@/lib/api/responses';
+import { successResponse, serverErrorResponse, validationErrorResponse, errorResponse } from '@/lib/api/responses';
 import { createAnonymousMessageSchema } from '@/lib/validations/anonymous-message.schema';
 import { getIpLocation } from '@/lib/services/geoIpService';
 import { createId } from '@paralleldrive/cuid2';
@@ -17,7 +17,10 @@ async function handleGet(req: NextRequest) {
 
     const result = await anonymousMessagesService.getAll(filters);
     return successResponse(result);
-  } catch {
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      return errorResponse('Invalid JSON body', 400);
+    }
     return serverErrorResponse();
   }
 }
@@ -25,7 +28,11 @@ async function handleGet(req: NextRequest) {
 async function handlePost(req: NextRequest) {
   try {
     const body = await req.json();
-    const parsed = createAnonymousMessageSchema.parse(body);
+    const validation = createAnonymousMessageSchema.safeParse(body);
+    if (!validation.success) {
+      return validationErrorResponse(validation.error.flatten().fieldErrors);
+    }
+    const parsed = validation.data;
 
     const forwarded = req.headers.get('x-forwarded-for');
     const clientIp = forwarded ? forwarded.split(',')[0].trim() : '0.0.0.0';
@@ -55,10 +62,7 @@ async function handlePost(req: NextRequest) {
     });
 
     return successResponse(message, 'Message sent successfully');
-  } catch (error) {
-    if (error instanceof Error && error.name === 'ZodError') {
-      return validationErrorResponse(error);
-    }
+  } catch {
     return serverErrorResponse();
   }
 }
