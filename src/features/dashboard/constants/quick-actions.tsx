@@ -5,7 +5,7 @@ import {
   Calendar,
   User,
   BarChart3,
-  FileText,
+  Bot,
   MessagesSquare,
   Send,
 } from 'lucide-react';
@@ -67,9 +67,9 @@ export const QUICK_ACTIONS: QuickAction[] = [
     delay: 1100,
   },
   {
-    icon: <FileText className="w-4 h-4" />,
-    label: 'AI Service',
-    href: '/knowledge',
+    icon: <Bot className="w-4 h-4" />,
+    label: 'AI Assistant Settings',
+    href: '/ai-assistant',
     delay: 1150,
   },
   {

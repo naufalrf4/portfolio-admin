@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { CheckCircle, Loader2, Ruler, Save, XCircle } from 'lucide-react';
+import { Bot, CheckCircle, KeyRound, Loader2, Ruler, Save, XCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -10,6 +10,7 @@ import { Switch } from '@/components/ui/switch';
 import { Textarea } from '@/components/ui/textarea';
 import {
   CHATBOT_TOOLS,
+  CHATBOT_TOOL_INFO,
   DEFAULT_AGENT_CONFIG,
   type AgentConfig,
 } from '@/lib/ai/agent-config';
@@ -19,6 +20,7 @@ import {
   type LlmProvider,
 } from '../constants/llm-providers';
 import { LlmSlotCard, type LlmSlotValue } from './LlmSlotCard';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface LlmConfigResponse {
   mainProvider: LlmProvider;
@@ -34,6 +36,7 @@ interface LlmConfigResponse {
   embeddingApiKeySet: boolean;
   embeddingModel: string;
   embeddingDimension: number;
+  typesafeApiKeySet: boolean;
   agentConfig: AgentConfig;
 }
 
@@ -60,6 +63,13 @@ export function AiConfigTab() {
   const [embeddingDimension, setEmbeddingDimension] = useState(CHUNK_VECTOR_DIMENSION);
   const [probing, setProbing] = useState(false);
   const [agentConfig, setAgentConfig] = useState<AgentConfig>(DEFAULT_AGENT_CONFIG);
+  const [typesafeApiKey, setTypesafeApiKey] = useState('');
+  const [typesafeApiKeySet, setTypesafeApiKeySet] = useState(false);
+  const [clearTypesafeApiKey, setClearTypesafeApiKey] = useState(false);
+  const [activeSection, setActiveSection] = useState('providers');
+  const [testingJev, setTestingJev] = useState(false);
+  const [jevTestMessage, setJevTestMessage] = useState<string | null>(null);
+  const [jevTestFailed, setJevTestFailed] = useState(false);
 
   const dimensionMismatch = embeddingDimension !== CHUNK_VECTOR_DIMENSION;
 
@@ -98,6 +108,7 @@ export function AiConfigTab() {
           }));
         }
         setEmbeddingDimension(d.embeddingDimension);
+        setTypesafeApiKeySet(d.typesafeApiKeySet);
         setAgentConfig(d.agentConfig ?? DEFAULT_AGENT_CONFIG);
       } catch {
         if (active) setError('Failed to load AI config');
@@ -217,6 +228,8 @@ export function AiConfigTab() {
           embeddingModel: embedding.model,
           embeddingDimension,
           agentConfig,
+          typesafeApiKey,
+          clearTypesafeApiKey,
         }),
       });
 
@@ -237,11 +250,36 @@ export function AiConfigTab() {
         apiKey: '',
         apiKeySet: prev.apiKeySet || prev.apiKey !== '',
       }));
+      setTypesafeApiKey('');
+      setTypesafeApiKeySet(clearTypesafeApiKey ? false : typesafeApiKeySet || typesafeApiKey !== '');
+      setClearTypesafeApiKey(false);
+      setJevTestMessage(null);
       setTimeout(() => setSaved(false), 3000);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Save failed');
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleTestJev = async () => {
+    setTestingJev(true);
+    setJevTestMessage(null);
+    setJevTestFailed(false);
+    try {
+      const res = await fetch('/api/v1/admin/llm-config/test-jev', { method: 'POST' });
+      const payload = (await res.json()) as {
+        data?: { model?: string };
+        error?: { message?: string };
+        message?: string;
+      };
+      if (!res.ok) throw new Error(payload.error?.message ?? 'JEv connection check failed.');
+      setJevTestMessage(`Connected to ${payload.data?.model ?? agentConfig.jevModel}.`);
+    } catch (err) {
+      setJevTestFailed(true);
+      setJevTestMessage(err instanceof Error ? err.message : 'JEv connection check failed.');
+    } finally {
+      setTestingJev(false);
     }
   };
 
@@ -258,7 +296,7 @@ export function AiConfigTab() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-[var(--text-secondary)]">
-          Providers and agent behavior used by the RAG chatbot. Changes are picked up within 10 seconds.
+          Manage the assistant in four sections. Saved changes reach the chat service within 10 seconds.
         </p>
         <Button variant="primary" onClick={handleSave} disabled={saving}>
           {saving ? (
@@ -284,202 +322,198 @@ export function AiConfigTab() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <LlmSlotCard
-          title="Main LLM"
-          description="Generates chat answers for the portfolio assistant."
-          idPrefix="main"
-          value={main}
-          onChange={(patch) => setMain((prev) => ({ ...prev, ...patch }))}
-          onProviderChange={(provider) => changeProvider(setMain, provider)}
-          onFetchModels={() => void fetchModels(main, setMain, 'main')}
-        />
+      <Tabs value={activeSection} onValueChange={setActiveSection}>
+        <TabsList className="w-full justify-start">
+          <TabsTrigger value="providers">Models & providers</TabsTrigger>
+          <TabsTrigger value="jev">JEv routing</TabsTrigger>
+          <TabsTrigger value="safety">Safety rules</TabsTrigger>
+          <TabsTrigger value="tools">Tools & knowledge</TabsTrigger>
+        </TabsList>
 
-        <LlmSlotCard
-          title="Embedding"
-          description="Turns documents into vectors for retrieval."
-          idPrefix="embedding"
-          value={embedding}
-          onChange={(patch) => setEmbedding((prev) => ({ ...prev, ...patch }))}
-          onProviderChange={(provider) => changeProvider(setEmbedding, provider)}
-          onFetchModels={() => void fetchModels(embedding, setEmbedding, 'embedding')}
-        >
-          <div className="space-y-2">
-            <Label htmlFor="embedding-dimension">Embedding Dimension</Label>
-            <div className="flex gap-2">
-              <Input
-                id="embedding-dimension"
-                className="flex-1"
-                type="number"
-                value={embeddingDimension}
-                onChange={(event) =>
-                  setEmbeddingDimension(Number(event.target.value) || CHUNK_VECTOR_DIMENSION)
-                }
-              />
-              <Button
-                type="button"
-                variant="ghost"
-                onClick={() => void probeDimension()}
-                disabled={probing || embedding.model.length === 0}
-                title="Ask the provider for the real vector size"
-              >
-                {probing ? <Loader2 className="h-4 w-4 animate-spin" /> : <Ruler className="h-4 w-4" />}
-                Detect
-              </Button>
-            </div>
-            <p className="text-xs text-[var(--text-secondary)]">
-              Detect sends one probe embedding request and reads the real vector length.
-            </p>
-            {dimensionMismatch && (
-              <p className="text-xs text-[var(--error)]">
-                The chunk vector column is fixed at {CHUNK_VECTOR_DIMENSION} dimensions. Saving{' '}
-                {embeddingDimension} requires a schema migration and full re-ingest before retrieval
-                works.
-              </p>
-            )}
-          </div>
-        </LlmSlotCard>
-      </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Agent, JEv & Tools</CardTitle>
-          <CardDescription>
-            Configure JEv routing and guardrail questions, retrieval behavior, and the tools the
-            assistant may select. The JEv API key stays in the RAG deployment secret. User text and,
-            when enabled, the final answer are sent to TypeSafe after email and phone redaction; enable
-            Zero Data Retention before using personal data in production.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-5">
-          <div className="space-y-2">
-            <Label htmlFor="jev-model">JEv model</Label>
-            <Input
-              id="jev-model"
-              value={agentConfig.jevModel}
-              onChange={(event) =>
-                setAgentConfig((current) => ({ ...current, jevModel: event.target.value }))
-              }
-              maxLength={100}
+        <TabsContent value="providers" className="space-y-6">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <LlmSlotCard
+              title="Main model"
+              description="Writes the assistant's final response."
+              idPrefix="main"
+              value={main}
+              onChange={(patch) => setMain((prev) => ({ ...prev, ...patch }))}
+              onProviderChange={(provider) => changeProvider(setMain, provider)}
+              onFetchModels={() => void fetchModels(main, setMain, 'main')}
             />
+
+            <LlmSlotCard
+              title="Embedding model"
+              description="Finds matching passages in portfolio documents when search is selected."
+              idPrefix="embedding"
+              value={embedding}
+              onChange={(patch) => setEmbedding((prev) => ({ ...prev, ...patch }))}
+              onProviderChange={(provider) => changeProvider(setEmbedding, provider)}
+              onFetchModels={() => void fetchModels(embedding, setEmbedding, 'embedding')}
+            >
+              <div className="space-y-2">
+                <Label htmlFor="embedding-dimension">Vector dimension</Label>
+                <div className="flex gap-2">
+                  <Input
+                    id="embedding-dimension"
+                    className="flex-1"
+                    type="number"
+                    value={embeddingDimension}
+                    onChange={(event) =>
+                      setEmbeddingDimension(Number(event.target.value) || CHUNK_VECTOR_DIMENSION)
+                    }
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={() => void probeDimension()}
+                    disabled={probing || embedding.model.length === 0}
+                    title="Ask the provider for the real vector size"
+                  >
+                    {probing ? <Loader2 className="h-4 w-4 animate-spin" /> : <Ruler className="h-4 w-4" />}
+                    Detect
+                  </Button>
+                </div>
+                <p className="text-xs text-[var(--text-secondary)]">
+                  Detect sends one test embedding request. The database currently supports {CHUNK_VECTOR_DIMENSION} dimensions; changing it requires a migration and full re-index.
+                </p>
+                {dimensionMismatch && (
+                  <p className="text-xs text-[var(--error)]">
+                    Current database vectors have {CHUNK_VECTOR_DIMENSION} dimensions. Do not save a different value until the database is migrated and all documents are re-indexed.
+                  </p>
+                )}
+              </div>
+            </LlmSlotCard>
           </div>
-          <div className="grid gap-4 lg:grid-cols-3">
-            <div className="space-y-2">
-              <Label htmlFor="jev-routing-schema">Routing question / schema guidance</Label>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Fallback model</CardTitle>
+              <CardDescription>Used when the main model is unavailable or rate-limited.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center gap-3">
+                <Switch id="fallback-enabled" checked={fallbackEnabled} onCheckedChange={setFallbackEnabled} />
+                <Label htmlFor="fallback-enabled">Use a fallback model</Label>
+              </div>
+              {fallbackEnabled && (
+                <LlmSlotCard
+                  title="Fallback provider"
+                  description="Must return the same chat response format as the main model."
+                  idPrefix="fallback"
+                  value={fallback}
+                  onChange={(patch) => setFallback((prev) => ({ ...prev, ...patch }))}
+                  onProviderChange={(provider) => changeProvider(setFallback, provider)}
+                  onFetchModels={() => void fetchModels(fallback, setFallback, 'fallback')}
+                />
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="jev" className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>TypeSafe JEv connection</CardTitle>
+              <CardDescription>
+                JEv classifies whether a message is safe, whether portfolio search is needed, and which action fits. Add the TypeSafe API key here; Admin encrypts it at rest and sends it to RAG only through the authenticated internal API. The saved key is never returned by the config API.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-5">
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="typesafe-api-key">TypeSafe API key</Label>
+                  <Input
+                    id="typesafe-api-key"
+                    type="password"
+                    autoComplete="new-password"
+                    value={typesafeApiKey}
+                    placeholder={typesafeApiKeySet && !clearTypesafeApiKey ? 'Saved key — enter a new key to replace it' : 'Paste TypeSafe API key'}
+                    onChange={(event) => {
+                      setTypesafeApiKey(event.target.value);
+                      setClearTypesafeApiKey(false);
+                      setJevTestMessage(null);
+                    }}
+                    maxLength={4096}
+                  />
+                  <p className="text-xs text-[var(--text-secondary)]">
+                    {typesafeApiKeySet && !clearTypesafeApiKey
+                      ? 'A key is saved. Leave this blank to keep it.'
+                      : 'The key is sent only to TypeSafe from the server.'}
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="jev-model">JEv model ID</Label>
+                  <Input
+                    id="jev-model"
+                    value={agentConfig.jevModel}
+                    onChange={(event) =>
+                      setAgentConfig((current) => ({ ...current, jevModel: event.target.value }))
+                    }
+                    maxLength={100}
+                  />
+                  <p className="text-xs text-[var(--text-secondary)]">
+                    The model used for input routing and optional answer review.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)]" role="status">
+                  <KeyRound className="h-4 w-4" />
+                  {clearTypesafeApiKey
+                    ? 'Saved key will be removed when you save.'
+                    : typesafeApiKeySet
+                      ? 'Admin API key is saved.'
+                      : 'No Admin API key is saved.'}
+                </div>
+                {typesafeApiKeySet && (
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={() => {
+                      setClearTypesafeApiKey((current) => !current);
+                      setTypesafeApiKey('');
+                      setJevTestMessage(null);
+                    }}
+                  >
+                    {clearTypesafeApiKey ? 'Keep saved key' : 'Remove saved key'}
+                  </Button>
+                )}
+                <Button type="button" variant="outline" onClick={() => void handleTestJev()} disabled={!typesafeApiKeySet || clearTypesafeApiKey || testingJev || saving}>
+                  {testingJev ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Bot className="mr-2 h-4 w-4" />}
+                  {testingJev ? 'Checking…' : 'Test saved connection'}
+                </Button>
+                {jevTestMessage && (
+                  <span className={`text-sm ${jevTestFailed ? 'text-[var(--error)]' : 'text-[var(--success)]'}`} role="status">
+                    {jevTestMessage}
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-[var(--text-secondary)]">
+                The connection test sends a fixed system check, not a visitor message. The Admin key takes priority over the temporary RAG environment fallback. Leave TypeSafe Zero Data Retention enabled before sending visitor content to JEv.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Routing instructions</CardTitle>
+              <CardDescription>
+                These instructions guide JEv when it selects search, profile, pricing, booking, contact, or guestbook. Tool availability below still limits what can run.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
               <Textarea
                 id="jev-routing-schema"
+                aria-label="JEv routing instructions"
                 value={agentConfig.routingInstructions}
-                onChange={(event) =>
-                  setAgentConfig((current) => ({
-                    ...current,
-                    routingInstructions: event.target.value,
-                  }))
-                }
+                onChange={(event) => setAgentConfig((current) => ({ ...current, routingInstructions: event.target.value }))}
                 maxLength={3000}
-                rows={6}
+                rows={7}
               />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="jev-input-safety">Input safety criteria</Label>
-              <Textarea
-                id="jev-input-safety"
-                value={agentConfig.inputSafetyInstructions}
-                onChange={(event) =>
-                  setAgentConfig((current) => ({
-                    ...current,
-                    inputSafetyInstructions: event.target.value,
-                  }))
-                }
-                maxLength={3000}
-                rows={6}
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="jev-output-safety">Output safety criteria</Label>
-              <Textarea
-                id="jev-output-safety"
-                value={agentConfig.outputSafetyInstructions}
-                onChange={(event) =>
-                  setAgentConfig((current) => ({
-                    ...current,
-                    outputSafetyInstructions: event.target.value,
-                  }))
-                }
-                maxLength={3000}
-                rows={6}
-              />
-            </div>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="space-y-3">
-              <Label>Available tools</Label>
-              {CHATBOT_TOOLS.map((tool) => (
-                <label key={tool} className="flex items-center gap-3 text-sm">
-                  <Switch
-                    checked={agentConfig.enabledTools.includes(tool)}
-                    onCheckedChange={(checked) =>
-                      setAgentConfig((current) => ({
-                        ...current,
-                        enabledTools: checked
-                          ? [...new Set([...current.enabledTools, tool])]
-                          : current.enabledTools.filter((item) => item !== tool),
-                      }))
-                    }
-                    aria-label={`Enable ${tool}`}
-                  />
-                  <span>{tool.replace(/_/g, ' ')}</span>
-                </label>
-              ))}
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <Label htmlFor="retrieval-enabled">Portfolio knowledge retrieval</Label>
-                  <p className="text-xs text-[var(--text-secondary)]">
-                    Embeddings are used only when the route selects portfolio search.
-                  </p>
-                </div>
-                <Switch
-                  id="retrieval-enabled"
-                  checked={agentConfig.retrievalEnabled}
-                  onCheckedChange={(retrievalEnabled) =>
-                    setAgentConfig((current) => ({ ...current, retrievalEnabled }))
-                  }
-                />
-              </div>
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <Label htmlFor="output-guardrail">JEv output review</Label>
-                  <p className="text-xs text-[var(--text-secondary)]">
-                    Reviews the final answer before it is returned; adds one JEv request.
-                  </p>
-                </div>
-                <Switch
-                  id="output-guardrail"
-                  checked={agentConfig.outputGuardrailEnabled}
-                  onCheckedChange={(outputGuardrailEnabled) =>
-                    setAgentConfig((current) => ({ ...current, outputGuardrailEnabled }))
-                  }
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="retrieval-limit">Maximum retrieved references</Label>
-                <Input
-                  id="retrieval-limit"
-                  type="number"
-                  min={1}
-                  max={10}
-                  value={agentConfig.retrievalLimit}
-                  onChange={(event) =>
-                    setAgentConfig((current) => ({
-                      ...current,
-                      retrievalLimit: Math.min(10, Math.max(1, Number(event.target.value) || 1)),
-                    }))
-                  }
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="agent-confidence">JEv confidence threshold</Label>
+              <div className="max-w-xs space-y-2">
+                <Label htmlFor="agent-confidence">Decision threshold</Label>
                 <Input
                   id="agent-confidence"
                   type="number"
@@ -487,49 +521,147 @@ export function AiConfigTab() {
                   max={0.99}
                   step={0.01}
                   value={agentConfig.confidenceThreshold}
-                  onChange={(event) =>
-                    setAgentConfig((current) => ({
-                      ...current,
-                      confidenceThreshold: Math.min(
-                        0.99,
-                        Math.max(0.5, Number(event.target.value) || 0.5),
-                      ),
-                    }))
-                  }
+                  onChange={(event) => setAgentConfig((current) => ({
+                    ...current,
+                    confidenceThreshold: Math.min(0.99, Math.max(0.5, Number(event.target.value) || 0.5)),
+                  }))}
+                />
+                <p className="text-xs text-[var(--text-secondary)]">
+                  JEv scores a decision from 0 to 1. A route is accepted at or above this score. The same threshold applies to input blocking and answer review.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="safety" className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Input checks</CardTitle>
+              <CardDescription>
+                JEv checks the current message and up to two earlier user messages. Email addresses and phone numbers are redacted first; the request is capped at 2,000 characters.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Label htmlFor="jev-input-safety">Block when a message asks the assistant to…</Label>
+              <Textarea
+                id="jev-input-safety"
+                className="mt-2"
+                value={agentConfig.inputSafetyInstructions}
+                onChange={(event) => setAgentConfig((current) => ({ ...current, inputSafetyInstructions: event.target.value }))}
+                maxLength={3000}
+                rows={7}
+              />
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Answer review</CardTitle>
+              <CardDescription>
+                Optional second JEv request checks the final answer before it is shown. Email and phone numbers are redacted and the text is capped at 4,000 characters. This adds latency and provider usage.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-5">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <Label htmlFor="output-guardrail">Review final answers with JEv</Label>
+                  <p className="text-xs text-[var(--text-secondary)]">
+                    Turn this off to skip the extra JEv request after an answer is generated.
+                  </p>
+                </div>
+                <Switch
+                  id="output-guardrail"
+                  checked={agentConfig.outputGuardrailEnabled}
+                  onCheckedChange={(outputGuardrailEnabled) => setAgentConfig((current) => ({ ...current, outputGuardrailEnabled }))}
                 />
               </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+              <div className="space-y-2">
+                <Label htmlFor="jev-output-safety">Block answers that…</Label>
+                <Textarea
+                  id="jev-output-safety"
+                  value={agentConfig.outputSafetyInstructions}
+                  onChange={(event) => setAgentConfig((current) => ({ ...current, outputSafetyInstructions: event.target.value }))}
+                  maxLength={3000}
+                  rows={7}
+                />
+              </div>
+              <p className="text-xs text-[var(--text-secondary)]">
+                If JEv is enabled but cannot be reached, chat fails closed in production and asks the visitor to try again or use the contact page.
+              </p>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Fallback LLM</CardTitle>
-          <CardDescription>Used when the main provider fails or rate-limits.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex items-center gap-3">
-            <Switch
-              id="fallback-enabled"
-              checked={fallbackEnabled}
-              onCheckedChange={setFallbackEnabled}
-            />
-            <Label htmlFor="fallback-enabled">Enable fallback</Label>
-          </div>
-          {fallbackEnabled && (
-            <LlmSlotCard
-              title="Fallback provider"
-              description="Same contract as the main LLM."
-              idPrefix="fallback"
-              value={fallback}
-              onChange={(patch) => setFallback((prev) => ({ ...prev, ...patch }))}
-              onProviderChange={(provider) => changeProvider(setFallback, provider)}
-              onFetchModels={() => void fetchModels(fallback, setFallback, 'fallback')}
-            />
-          )}
-        </CardContent>
-      </Card>
+        <TabsContent value="tools" className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Available tools</CardTitle>
+              <CardDescription>
+                JEv can route only to enabled tools. Turning a tool off also blocks its pending confirmation.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {CHATBOT_TOOLS.map((tool) => (
+                <div key={tool} className="flex items-start justify-between gap-4 border-b border-[var(--line)] pb-4 last:border-0 last:pb-0">
+                  <div className="space-y-1">
+                    <Label htmlFor={`tool-${tool}`}>{CHATBOT_TOOL_INFO[tool].label}</Label>
+                    <p className="max-w-3xl text-sm text-[var(--text-secondary)]">{CHATBOT_TOOL_INFO[tool].description}</p>
+                  </div>
+                  <Switch
+                    id={`tool-${tool}`}
+                    checked={agentConfig.enabledTools.includes(tool)}
+                    onCheckedChange={(checked) => setAgentConfig((current) => ({
+                      ...current,
+                      enabledTools: checked
+                        ? [...new Set([...current.enabledTools, tool])]
+                        : current.enabledTools.filter((item) => item !== tool),
+                    }))}
+                  />
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Portfolio knowledge search</CardTitle>
+              <CardDescription>
+                This is the only route that searches embedded documents. Embeddings are loaded on demand, not on every chat message.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-5">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <Label htmlFor="retrieval-enabled">Allow portfolio search</Label>
+                  <p className="text-xs text-[var(--text-secondary)]">
+                    Disable to stop vector retrieval even when JEv selects this route.
+                  </p>
+                </div>
+                <Switch
+                  id="retrieval-enabled"
+                  checked={agentConfig.retrievalEnabled}
+                  onCheckedChange={(retrievalEnabled) => setAgentConfig((current) => ({ ...current, retrievalEnabled }))}
+                />
+              </div>
+              <div className="max-w-xs space-y-2">
+                <Label htmlFor="retrieval-limit">Maximum references per answer</Label>
+                <Input
+                  id="retrieval-limit"
+                  type="number"
+                  min={1}
+                  max={10}
+                  value={agentConfig.retrievalLimit}
+                  onChange={(event) => setAgentConfig((current) => ({
+                    ...current,
+                    retrievalLimit: Math.min(10, Math.max(1, Number(event.target.value) || 1)),
+                  }))}
+                />
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

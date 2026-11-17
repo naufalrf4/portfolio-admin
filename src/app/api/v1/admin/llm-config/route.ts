@@ -7,6 +7,7 @@ import { createId } from '@paralleldrive/cuid2';
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
 import { agentConfigSchema, DEFAULT_AGENT_CONFIG, normalizeAgentConfig } from '@/lib/ai/agent-config';
+import { encryptSecret } from '@/lib/ai/secret-encryption';
 
 const llmConfigSchema = z.object({
   mainProvider: z.enum(['openai-compatible', 'gemini']),
@@ -23,6 +24,16 @@ const llmConfigSchema = z.object({
   embeddingModel: z.string().min(1),
   embeddingDimension: z.number().int().positive().optional(),
   agentConfig: agentConfigSchema.default(DEFAULT_AGENT_CONFIG),
+  typesafeApiKey: z.string().trim().max(4096).optional(),
+  clearTypesafeApiKey: z.boolean().optional(),
+}).superRefine((value, context) => {
+  if (value.clearTypesafeApiKey && value.typesafeApiKey) {
+    context.addIssue({
+      code: 'custom',
+      path: ['typesafeApiKey'],
+      message: 'Enter a replacement key or clear the saved key, not both.',
+    });
+  }
 });
 
 async function handleGet() {
@@ -34,7 +45,7 @@ async function handleGet() {
       return successResponse(null, 'No LLM config found');
     }
 
-    return successResponse({
+    const response = successResponse({
       id: row.id,
       mainProvider: row.mainProvider,
       mainBaseUrl: row.mainBaseUrl,
@@ -49,8 +60,11 @@ async function handleGet() {
       embeddingApiKeySet: row.embeddingApiKey.length > 0,
       embeddingModel: row.embeddingModel,
       embeddingDimension: row.embeddingDimension,
+      typesafeApiKeySet: Boolean(row.typesafeApiKeyEncrypted),
       agentConfig: normalizeAgentConfig(row.agentConfig),
     });
+    response.headers.set('Cache-Control', 'private, no-store');
+    return response;
   } catch {
     return serverErrorResponse();
   }
@@ -73,6 +87,11 @@ async function handlePut(req: NextRequest) {
 
     const keepExisting = (incoming: string | undefined, current: string | null | undefined) =>
       incoming && incoming.length > 0 ? incoming : (current ?? '');
+    const typesafeApiKeyEncrypted = data.clearTypesafeApiKey
+      ? null
+      : data.typesafeApiKey
+        ? encryptSecret(data.typesafeApiKey)
+        : existing?.typesafeApiKeyEncrypted ?? null;
 
     if (existing) {
       await db
@@ -94,6 +113,7 @@ async function handlePut(req: NextRequest) {
           embeddingModel: data.embeddingModel,
           embeddingDimension: data.embeddingDimension ?? 1536,
           agentConfig: data.agentConfig,
+          typesafeApiKeyEncrypted,
           updatedAt: now,
         })
         .where(eq(llmSettings.id, existing.id));
@@ -117,6 +137,7 @@ async function handlePut(req: NextRequest) {
       embeddingModel: data.embeddingModel,
       embeddingDimension: data.embeddingDimension ?? 1536,
       agentConfig: data.agentConfig,
+      typesafeApiKeyEncrypted,
       createdAt: now,
       updatedAt: now,
     });

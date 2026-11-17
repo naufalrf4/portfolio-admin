@@ -12,6 +12,7 @@ import {
   BarChart3,
   LogOut,
   FileText,
+  Bot,
   BookOpen,
   ScrollText,
 } from 'lucide-react';
@@ -43,7 +44,8 @@ const navigation = [
   { name: 'Publications', href: '/publications', icon: BookOpen },
   { name: 'Contact', href: '/contacts', icon: Send },
   { name: 'Links', href: '/links', icon: LinkIcon },
-  { name: 'AI Service', href: '/knowledge', icon: FileText },
+  { name: 'AI Assistant', href: '/ai-assistant', icon: Bot },
+  { name: 'Knowledge', href: '/knowledge', icon: FileText },
   { name: 'Analytics', href: '/analytics', icon: BarChart3 },
   { name: 'Logs', href: '/logs', icon: ScrollText },
 ];

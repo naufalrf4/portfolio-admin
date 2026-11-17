@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/button';
 import { KnowledgeTable } from '@/components/knowledge';
 import { ChatLogsTable } from '@/components/chat-logs';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { AiConfigTab } from '@/features/knowledge/components';
 
 interface KnowledgeDoc {
   id: string;
@@ -55,7 +54,7 @@ export function KnowledgePageContent() {
   const [loading, setLoading] = useState(true);
   const [chatLogsLoading, setChatLogsLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [activeTab, setActiveTab] = useState<'documents' | 'chat-logs' | 'ai-config'>('documents');
+  const [activeTab, setActiveTab] = useState<'documents' | 'chat-logs'>('documents');
 
   const fetchDocs = useCallback(async () => {
     try {
@@ -159,8 +158,8 @@ export function KnowledgePageContent() {
   return (
     <PageWrapper>
       <PageHeader
-        title="AI Service"
-        description="Manage knowledge documents and AI chat history without the old freelance-side helper copy."
+        title="Knowledge & Chat Logs"
+        description="Manage the source documents the assistant can search and review its conversations."
         icon={<FileText />}
         stats={[
           { label: 'Total', value: pagination?.total || docs.length },
@@ -191,7 +190,6 @@ export function KnowledgePageContent() {
         <TabsList className="mb-6 flex-wrap">
           <TabsTrigger value="documents">Knowledge Documents</TabsTrigger>
           <TabsTrigger value="chat-logs">Chat Logs</TabsTrigger>
-          <TabsTrigger value="ai-config">AI Config</TabsTrigger>
         </TabsList>
 
         <TabsContent value="documents">
@@ -207,9 +205,6 @@ export function KnowledgePageContent() {
           <ChatLogsTable logs={logs} loading={chatLogsLoading} onDelete={handleDeleteLog} />
         </TabsContent>
 
-        <TabsContent value="ai-config">
-          <AiConfigTab />
-        </TabsContent>
       </Tabs>
     </PageWrapper>
   );

@@ -4,6 +4,7 @@ import { db } from '@/lib/db';
 import { llmSettings } from '@/lib/db/schema';
 import { successResponse, serverErrorResponse } from '@/lib/api/responses';
 import { normalizeAgentConfig } from '@/lib/ai/agent-config';
+import { decryptSecret } from '@/lib/ai/secret-encryption';
 
 async function handleGet(_req: NextRequest) {
   try {
@@ -14,7 +15,7 @@ async function handleGet(_req: NextRequest) {
       return successResponse(null, 'No LLM config found');
     }
 
-    return successResponse({
+    const response = successResponse({
       main: {
         provider: row.mainProvider,
         baseUrl: row.mainBaseUrl,
@@ -36,8 +37,11 @@ async function handleGet(_req: NextRequest) {
         model: row.embeddingModel,
       },
       embeddingDimension: row.embeddingDimension,
+      typesafeApiKey: decryptSecret(row.typesafeApiKeyEncrypted) ?? '',
       agentConfig: normalizeAgentConfig(row.agentConfig),
     });
+    response.headers.set('Cache-Control', 'private, no-store');
+    return response;
   } catch {
     return serverErrorResponse('Failed to read LLM config');
   }

@@ -1,0 +1,1 @@
+ALTER TABLE "llm_settings" ADD COLUMN "typesafe_api_key_encrypted" text;

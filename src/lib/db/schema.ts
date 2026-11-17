@@ -833,6 +833,7 @@ export const llmSettings = pgTable('llm_settings', {
 
   embeddingDimension: integer('embedding_dimension').notNull().default(1536),
   agentConfig: jsonb('agent_config').notNull().default({}),
+  typesafeApiKeyEncrypted: text('typesafe_api_key_encrypted'),
 
   createdAt: timestamp({ precision: 3, withTimezone: true, mode: 'string' })
     .default(sql`CURRENT_TIMESTAMP`)

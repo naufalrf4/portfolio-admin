@@ -2,6 +2,8 @@
 
 Standalone service repository. Keep its build self-contained and preserve the runtime/API boundary documented in README.md. Secrets belong in deployment environment, never in Git.
 
+- The TypeSafe JEv API key is the exception to runtime-only provider secrets: Admin stores it encrypted in `llm_settings`, exposes only a configured/unset state to the browser, and decrypts it only for the service-authenticated internal config response to RAG. Keep `NEXTAUTH_SECRET` stable across deployments because it derives the encryption key.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
